@@ -32,10 +32,16 @@ img.logo {
 nav a {
   color: #18181a;
 }
-
+.right-nav {
+  position: relative;
+}
+.right-nav > a:hover .hide {
+  display: block;
+}
 .hide {
   display: none;
+  position: absolute;
+  width: 400px;
+  right: 0;
+  top: 74px;
 }
-
-/*font-family: 'Alegreya Sans SC', sans-serif;
-    font-family: 'Open Sans Condensed', sans-serif;*/

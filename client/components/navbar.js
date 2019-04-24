@@ -10,7 +10,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
     <img className="logo" src="/images/logo/dogDaysLogoNew.jpg" />
     <nav>
       {isLoggedIn ? (
-        <div>
+        <div className="right-nav">
           {/* The navbar will show these links after you log in */}
           <Link to="/home">Home</Link>
           <a href="#" onClick={handleClick}>
@@ -18,7 +18,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           </a>
         </div>
       ) : (
-        <div>
+        <div className="right-nav">
           {/* The navbar will show these links before you log in */}
           <Link to="/login">Login</Link>
           <div className="hide">
