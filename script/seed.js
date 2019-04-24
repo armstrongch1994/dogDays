@@ -2,6 +2,7 @@
 
 const db = require('../server/db')
 const {User} = require('../server/db/models')
+const {Dog} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -12,7 +13,30 @@ async function seed() {
     User.create({email: 'murphy@email.com', password: '123'})
   ])
 
+  const dogs = await Promise.all([
+    Dog.create({
+      name: 'Bear',
+      age: 4,
+      gender: 'female',
+      image: '../public/images/dogs/bear.jpg',
+      size: 'small',
+      weight: '30 lbs',
+      notes: 'All Users must be 18 years or older. '
+    }),
+    Dog.create({
+      name: 'Bella',
+      age: 8,
+      gender: 'female',
+      image: '../public/images/dogs/bella.jpg',
+      size: 'medium',
+      weight: '60 lbs',
+      notes:
+        'All Users must be 18 years or older. Bella is of larger size and weight. She is also in the larger age range and has less energy.'
+    })
+  ])
+
   console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${dogs.length} dogs`)
   console.log(`seeded successfully`)
 }
 
