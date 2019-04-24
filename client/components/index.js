@@ -6,4 +6,6 @@
 export {default as Navbar} from './navbar'
 export {default as UserHome} from './user-home'
 export {default as Carousel} from './carousel'
+export {default as SitterHome} from './sitter-home'
+export {default as ShelterHome} from './shelter-home'
 export {Login, Signup} from './auth-form'

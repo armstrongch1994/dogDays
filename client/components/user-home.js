@@ -12,6 +12,9 @@ export const UserHome = props => {
   return (
     <div>
       <h3>Welcome, {email}</h3>
+      <h2>
+        This is the homepage that displays to any visitor that is not logged in
+      </h2>
       <Carousel />
     </div>
   )
