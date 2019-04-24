@@ -16,6 +16,10 @@ const User = db.define('user', {
       return () => this.getDataValue('password')
     }
   },
+  isShelter: {
+    type: Sequelize.STRING,
+    defaultValue: false
+  },
   salt: {
     type: Sequelize.STRING,
     // Making `.salt` act like a function hides it when serializing to JSON.
@@ -67,4 +71,9 @@ User.beforeCreate(setSaltAndPassword)
 User.beforeUpdate(setSaltAndPassword)
 User.beforeBulkCreate(users => {
   users.forEach(setSaltAndPassword)
+})
+User.beforeCreate(user => {
+  if (user.isShelter === 'on') {
+    user.isShelter = true
+  }
 })

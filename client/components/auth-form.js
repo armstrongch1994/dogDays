@@ -25,6 +25,12 @@ const AuthForm = props => {
           <input name="password" type="password" />
         </div>
         <div>
+          <input type="checkbox" id="isShelter" name="isShelter" />
+          <label htmlFor="isShelter">
+            Check this box if you are a Dog Shelter
+          </label>
+        </div>
+        <div>
           <button type="submit">{displayName}</button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
@@ -64,7 +70,8 @@ const mapDispatch = dispatch => {
       const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(auth(email, password, formName))
+      const isShelter = evt.target.isShelter.value
+      dispatch(auth(email, password, isShelter, formName))
     }
   }
 }

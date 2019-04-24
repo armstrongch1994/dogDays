@@ -1,21 +1,3 @@
-body {
-  font-family: sans-serif;
-}
-body a {
-  text-decoration: none;
-}
-body label {
-  display: block;
-}
-body nav a {
-  display: inline-block;
-  margin: 1em;
-}
-body form div {
-  margin: 1em;
-  display: inline-block;
-}
-
 .nav-bar {
   font-family: 'Alegreya Sans SC', sans-serif;
   display: flex;
@@ -23,25 +5,36 @@ body form div {
   justify-content: space-between;
   font-size: 18px;
   border-bottom: 1px solid #bac5d0;
-  color: #18181a;
-}
+  color: #18181a; }
+
 img.logo {
   max-height: 90px;
-  width: auto;
-}
-nav a {
-  color: #18181a;
-}
-.right-nav {
-  position: relative;
-}
-.right-nav > a:hover .hide {
-  display: block;
-}
+  width: auto; }
+
 .hide {
   display: none;
   position: absolute;
   width: 400px;
   right: 0;
-  top: 74px;
-}
+  top: 74px; }
+
+nav a {
+  color: #18181a; }
+
+.right-nav {
+  position: relative; }
+
+body {
+  font-family: sans-serif; }
+  body a {
+    text-decoration: none; }
+  body label {
+    display: block; }
+  body nav a {
+    display: inline-block;
+    margin: 1em; }
+  body form div {
+    margin: 1em;
+    display: inline-block; }
+
+/*# sourceMappingURL=style.css.map*/

@@ -20,10 +20,11 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       ) : (
         <div className="right-nav">
           {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
+          <Link className="login" to="/login">
+            Login
+          </Link>
           <div className="hide">
-            {' '}
-            <Login />{' '}
+            <Login />
           </div>
           <Link to="/signup">Sign Up</Link>
         </div>

@@ -1,0 +1,35 @@
+// Try renaming this file to the name of one of your components and writing scss here
+
+.nav-bar {
+  font-family: 'Alegreya Sans SC', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  border-bottom: 1px solid #bac5d0;
+  color: #18181a;
+}
+img.logo {
+  max-height: 90px;
+  width: auto;
+}
+.hide {
+  display: none;
+  position: absolute;
+  width: 400px;
+  right: 0;
+  top: 74px;
+}
+nav a {
+  color: #18181a;
+}
+.right-nav {
+  position: relative;
+}
+
+// .login:hover ~ .hide {
+//   display: block;
+// }
+// .hide:hover {
+//   display: block;
+// }

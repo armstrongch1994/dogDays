@@ -30,10 +30,17 @@ export const me = () => async dispatch => {
   }
 }
 
-export const auth = (email, password, method) => async dispatch => {
+export const auth = (
+  email,
+  password,
+  isShelter = false,
+  method
+) => async dispatch => {
   let res
   try {
-    res = await axios.post(`/auth/${method}`, {email, password})
+    console.log('isShelter', isShelter)
+    console.log(typeof isShelter)
+    res = await axios.post(`/auth/${method}`, {email, password, isShelter})
   } catch (authError) {
     return dispatch(getUser({error: authError}))
   }
