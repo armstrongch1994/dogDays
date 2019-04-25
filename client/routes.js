@@ -22,10 +22,6 @@ class Routes extends Component {
 
   render() {
     const {isLoggedIn, isShelter, isSitter} = this.props
-    console.log('isLoggedIn', isLoggedIn)
-    console.log('is a sitter', isSitter)
-    console.log('is a shelter', isShelter)
-
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
@@ -34,12 +30,14 @@ class Routes extends Component {
         {isSitter && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={SitterHome} />
+            <Route path="/sitterhome" component={SitterHome} />
+            <Route path="/home" component={Carousel} />
           </Switch>
         )}
         {isShelter && (
           <Switch>
-            <Route path="/home" component={ShelterHome} />
+            <Route path="/shelterhome" component={ShelterHome} />
+            <Route path="/home" component={Carousel} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

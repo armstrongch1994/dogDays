@@ -16,10 +16,6 @@ const User = db.define('user', {
       return () => this.getDataValue('password')
     }
   },
-  isShelter: {
-    type: Sequelize.STRING,
-    defaultValue: false
-  },
   userType: {
     type: Sequelize.STRING,
     validate: {

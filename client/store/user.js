@@ -30,20 +30,12 @@ export const me = () => async dispatch => {
   }
 }
 
-export const auth = (
-  email,
-  password,
-  isShelter = false,
-  userType,
-  method
-) => async dispatch => {
+export const auth = (email, password, userType, method) => async dispatch => {
   let res
   try {
-    console.log('userType', userType)
     res = await axios.post(`/auth/${method}`, {
       email,
       password,
-      isShelter,
       userType
     })
   } catch (authError) {
@@ -52,7 +44,14 @@ export const auth = (
 
   try {
     dispatch(getUser(res.data))
-    history.push('/home')
+    console.log('res,data inside of auth', res.data)
+    if (res.data.userType === 'sitter') {
+      history.push('/sitterhome')
+    } else if (res.data.userType === 'shelter') {
+      history.push('/shelterhome')
+    } else {
+      history.push('/home')
+    }
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }

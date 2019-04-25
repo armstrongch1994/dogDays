@@ -40,18 +40,6 @@ class Signup extends Component {
             </label>
             <input name="password" type="password" />
           </div>
-          <div>
-            <input
-              type="checkbox"
-              id="isShelter"
-              value={this.state.isChecked}
-              name="isShelter"
-              onClick={this.handleCheckboxClick}
-            />
-            <label htmlFor="isShelter">
-              Check this box if you are a Dog Shelter
-            </label>
-          </div>
           <select
             name="userType"
             value={this.state.value}
@@ -90,9 +78,8 @@ const mapDispatch = dispatch => {
       const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
-      const isShelter = evt.target.isShelter.value
       const userType = evt.target.userType.value
-      dispatch(auth(email, password, isShelter, userType, formName))
+      dispatch(auth(email, password, userType, formName))
     }
   }
 }
