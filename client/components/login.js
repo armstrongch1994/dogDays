@@ -20,6 +20,12 @@ class Login extends Component {
             <input name="password" type="password" />
           </div>
           <div>
+            <label htmlFor="userName">
+              <small>name</small>
+            </label>
+            <input name="userName" type="text" />
+          </div>
+          <div>
             <button type="submit">{this.props.displayName}</button>
           </div>
           {this.props.error &&
@@ -48,7 +54,8 @@ const mapDispatch = dispatch => {
       const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(auth(email, password, null, formName))
+      const userName = evt.target.userName.value
+      dispatch(auth(email, password, userName, null, formName))
     }
   }
 }

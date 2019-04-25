@@ -1,23 +1,16 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {auth} from '../store'
-import {RadioGroup, RadioButton} from 'react-radio-buttons'
 
 class Signup extends Component {
   constructor() {
     super()
     this.state = {
-      isChecked: false,
       value: 'null'
     }
-    this.handleCheckboxClick = this.handleCheckboxClick.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
-  handleCheckboxClick() {
-    this.setState({
-      isChecked: !this.state.isChecked
-    })
-  }
+
   handleChange(event) {
     console.log('my value is getting change')
     this.setState({value: event.target.value})
@@ -39,6 +32,12 @@ class Signup extends Component {
               <small>Password</small>
             </label>
             <input name="password" type="password" />
+          </div>
+          <div>
+            <label htmlFor="userName">
+              <small>name</small>
+            </label>
+            <input name="userName" type="text" />
           </div>
           <select
             name="userType"
@@ -78,8 +77,9 @@ const mapDispatch = dispatch => {
       const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
+      const userName = evt.target.userName.value
       const userType = evt.target.userType.value
-      dispatch(auth(email, password, userType, formName))
+      dispatch(auth(email, password, userName, userType, formName))
     }
   }
 }

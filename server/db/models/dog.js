@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Dog = db.define('dog', {
-  name: {
+  puppyName: {
     type: Sequelize.STRING
   },
   age: {
@@ -11,17 +11,20 @@ const Dog = db.define('dog', {
   gender: {
     type: Sequelize.STRING
   },
-  image: {
+  file: {
     type: Sequelize.STRING
+  },
+  imagePreviewUrl: {
+    type: Sequelize.TEXT
   },
   size: {
     type: Sequelize.STRING
   },
-  weight: {
+  breed: {
     type: Sequelize.STRING
   },
-  notes: {
-    type: Sequelize.TEXT
+  personality: {
+    type: Sequelize.STRING
   }
 })
 

@@ -10,3 +10,13 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.post('/', async (req, res, next) => {
+  try {
+    const newDog = await Dog.create(req.body)
+    console.log(newDog)
+    res.json(newDog)
+  } catch (error) {
+    next(error)
+  }
+})

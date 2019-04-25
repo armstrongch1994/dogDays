@@ -16,6 +16,9 @@ const User = db.define('user', {
       return () => this.getDataValue('password')
     }
   },
+  userName: {
+    type: Sequelize.STRING
+  },
   userType: {
     type: Sequelize.STRING,
     validate: {
@@ -73,9 +76,4 @@ User.beforeCreate(setSaltAndPassword)
 User.beforeUpdate(setSaltAndPassword)
 User.beforeBulkCreate(users => {
   users.forEach(setSaltAndPassword)
-})
-User.beforeCreate(user => {
-  if (user.isShelter === 'on') {
-    user.isShelter = true
-  }
 })

@@ -26,16 +26,23 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
-      { // setup to watch our SCSS files
+      {
+        // setup to watch our SCSS files
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader!sass-loader",
+          fallback: 'style-loader',
+          use: 'css-loader!sass-loader'
         })
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+        use: 'url-loader?limit=100000'
       }
     ]
   },
-  plugins: [
-    new ExtractTextPlugin('./public/style.css')
-  ]
+  plugins: [new ExtractTextPlugin('./public/style.css')]
 }
