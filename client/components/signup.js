@@ -1,19 +1,28 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {auth} from '../store'
+import {RadioGroup, RadioButton} from 'react-radio-buttons'
 
 class Signup extends Component {
   constructor() {
     super()
     this.state = {
-      isChecked: false
+      isChecked: false,
+      value: 'null'
     }
     this.handleCheckboxClick = this.handleCheckboxClick.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
   handleCheckboxClick() {
     this.setState({
       isChecked: !this.state.isChecked
     })
+  }
+  handleChange(event) {
+    console.log('my value is getting change')
+    this.setState({value: event.target.value})
+    console.log('event.target.value', event.target.value)
+    console.log('STATE', this.state.value)
   }
   render() {
     return (
@@ -43,6 +52,15 @@ class Signup extends Component {
               Check this box if you are a Dog Shelter
             </label>
           </div>
+          <select
+            name="userType"
+            value={this.state.value}
+            onChange={this.handleChange}
+          >
+            <option default>Choose your User Group</option>
+            <option value="sitter">Watch Dog!</option>
+            <option value="shelter">Shelter!</option>
+          </select>
           <div>
             <button type="submit">{this.props.displayName}</button>
           </div>
@@ -73,7 +91,8 @@ const mapDispatch = dispatch => {
       const email = evt.target.email.value
       const password = evt.target.password.value
       const isShelter = evt.target.isShelter.value
-      dispatch(auth(email, password, isShelter, formName))
+      const userType = evt.target.userType.value
+      dispatch(auth(email, password, isShelter, userType, formName))
     }
   }
 }

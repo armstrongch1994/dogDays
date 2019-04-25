@@ -20,6 +20,12 @@ const User = db.define('user', {
     type: Sequelize.STRING,
     defaultValue: false
   },
+  userType: {
+    type: Sequelize.STRING,
+    validate: {
+      isIn: [['sitter', 'shelter']]
+    }
+  },
   salt: {
     type: Sequelize.STRING,
     // Making `.salt` act like a function hides it when serializing to JSON.
