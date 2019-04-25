@@ -21,14 +21,16 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn, isShelter} = this.props
-
+    const {isLoggedIn, isShelter, isSitter} = this.props
+    console.log('isSitter', isSitter)
+    console.log('isShelter', isShelter)
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        {isLoggedIn && (
+        <Route component={Carousel} />
+        {isSitter && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={SitterHome} />
@@ -40,7 +42,6 @@ class Routes extends Component {
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
-        <Route component={Carousel} />
       </Switch>
     )
   }
@@ -50,11 +51,12 @@ class Routes extends Component {
  * CONTAINER
  */
 const mapState = state => {
+  console.log('state.user.isshelter', state.user.isShelter)
   return {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
-    isLoggedIn: !!state.user.id && !state.user.isShelter,
-    isShelter: !!state.user.isShelter && !!state.user.id
+    isLoggedIn: !!state.user.id,
+    isShelter: !!state.user.isShelter
   }
 }
 
