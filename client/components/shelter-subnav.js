@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import {withRouter, Route, Switch} from 'react-router-dom'
 import {Link} from 'react-router-dom'
-import ShelterHome from './shelter-home'
+
 class ShelterSubnav extends Component {
   render() {
     return (
@@ -9,10 +8,13 @@ class ShelterSubnav extends Component {
         <nav className="shelter-subnav">
           <ul>
             <li>
-              <Link to="shelterhome"> Shelter Home Page (Add dog) </Link>
+              <Link to="/shelterHome"> My Home </Link>
             </li>
             <li>
-              <Link to="/allDogs"> All your current Dogs</Link>
+              <Link to="/allDogs"> All my Pups</Link>
+            </li>
+            <li>
+              <Link to="/addDog"> Add a pup </Link>
             </li>
           </ul>
         </nav>

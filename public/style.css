@@ -75,6 +75,16 @@ h3 {
     .shelter-subnav ul li a:hover {
       color: black; }
 
+.welcome-banner {
+  font-family: 'Amatic SC', cursive;
+  text-align: center; }
+
+p {
+  font-family: 'Open Sans Condensed', sans-serif; }
+
+.add-dog-header {
+  font-family: 'Open Sans Condensed', sans-serif; }
+
 body {
   font-family: sans-serif; }
   body a {
