@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {Dog} = require('../db/models')
+const whatDog = require('what-dog')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -13,6 +14,14 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
+    let dogURL = req.body.imgUrl
+    let dogData
+    whatDog(dogURL).then(doggyData => {
+      dogData = doggyData
+    })
+    if (dogData.isDog) {
+      req.body.breed = dogData.breed
+    }
     const newDog = await Dog.create(req.body)
     res.json(newDog)
   } catch (error) {

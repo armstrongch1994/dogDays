@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {addDogThunk} from '../store/dog'
+
 class AddDog extends Component {
   constructor(props) {
     super(props)
@@ -46,6 +47,7 @@ class AddDog extends Component {
       puppyName: '',
       age: '',
       gender: '',
+      imgUrl: '',
       // file: '',
       // imagePreviewUrl: '',
       size: '',
@@ -201,6 +203,7 @@ const mapState = state => {
 const mapDispatch = dispatch => ({
   addDog: newDog => {
     console.log('newDogObj', newDog)
+
     dispatch(addDogThunk(newDog))
   }
 })

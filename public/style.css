@@ -118,6 +118,19 @@ img {
     .sitter-subnav ul li a:hover {
       color: black; }
 
+.all-dogs-header {
+  font-family: 'Amatic SC', cursive; }
+
+.single-dog {
+  display: flex;
+  align-items: center;
+  justify-content: space-evently;
+  max-width: 50%;
+  margin: 0 auto; }
+
+.image-container img {
+  max-height: 200px; }
+
 body {
   font-family: sans-serif; }
   body a {

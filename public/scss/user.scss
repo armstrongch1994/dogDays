@@ -12,3 +12,20 @@
     }
   }
 }
+.all-dogs-header {
+  font-family: 'Amatic SC', cursive;
+}
+.all-dogs-container {
+}
+.single-dog {
+  display: flex;
+  align-items: center;
+  justify-content: space-evently;
+  max-width: 50%;
+  margin: 0 auto;
+}
+.dog-content {
+}
+.image-container img {
+  max-height: 200px;
+}
