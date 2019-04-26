@@ -85,8 +85,38 @@ p {
 .add-dog-header {
   font-family: 'Open Sans Condensed', sans-serif; }
 
+.shelter-dogs-list {
+  list-style-type: none;
+  padding-inline-start: 0;
+  margin: 0 20px; }
+
+li.shelter-dog {
+  display: flex;
+  background-color: #eaecef;
+  margin: 5px 0; }
+  li.shelter-dog:hover {
+    background-color: #bac5d0; }
+
+li.shelter-dog > p {
+  font-size: 20px;
+  margin: 5px; }
+
 img {
   max-width: 500px; }
+
+.slick-slider {
+  margin: 40px; }
+
+.sitter-subnav ul {
+  display: flex;
+  list-style-type: none;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 16px;
+  background-color: #bac5d0; }
+  .sitter-subnav ul li a {
+    color: white; }
+    .sitter-subnav ul li a:hover {
+      color: black; }
 
 body {
   font-family: sans-serif; }

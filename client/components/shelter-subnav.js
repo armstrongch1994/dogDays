@@ -11,7 +11,7 @@ class ShelterSubnav extends Component {
               <Link to="/shelterHome"> My Home </Link>
             </li>
             <li>
-              <Link to="/allDogs"> All my Pups</Link>
+              <Link to="/allMyDogs"> All my Pups</Link>
             </li>
             <li>
               <Link to="/addDog"> Add a pup </Link>

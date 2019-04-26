@@ -7,7 +7,7 @@ class Carousel extends React.Component {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 1,
+      slidesToShow: 2,
       slidesToScroll: 1,
       adaptiveHeight: true,
       arrows: true,
@@ -19,13 +19,19 @@ class Carousel extends React.Component {
           <img src="/images/carousel/C1.jpg" />
         </div>
         <div>
-          <img src="/images/carousel/dogs/gus.jpg" />
+          <img src="/images/dogs/gus.jpg" />
         </div>
         <div>
           <img src="/images/carousel/C3.jpg" />
         </div>
         <div>
           <img src="/images/carousel/C4.jpg" />
+        </div>
+        <div>
+          <img src="/images/dogs/lincoln.jpg" />
+        </div>
+        <div>
+          <img src="/images/dogs/bella.jpg" />
         </div>
       </Slider>
     )

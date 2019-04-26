@@ -3,6 +3,7 @@ import history from '../history'
 
 const ADD_DOG = 'ADD_DOG'
 const GET_SHELTERS_DOGS = 'GET_SHELTERS_DOGS'
+const GET_ALL_DOGS = 'GET_ALL_DOGS'
 
 const initialState = {
   dogs: [],
@@ -21,6 +22,7 @@ const getSheltersDogs = sheltersDogs => ({
 export const addDogThunk = newDog => async dispatch => {
   try {
     const {data} = await axios.post('/api/dogs', newDog)
+
     dispatch(addDog(data))
   } catch (err) {
     console.error(err)
@@ -30,6 +32,7 @@ export const addDogThunk = newDog => async dispatch => {
 export const getSheltersDogsThunk = shelterId => async dispatch => {
   try {
     const {data} = await axios.get(`/api/dogs/${shelterId}`)
+    console.log('data inside add Dog Thunk', data)
     dispatch(getSheltersDogs(data))
   } catch (error) {
     console.error(error)

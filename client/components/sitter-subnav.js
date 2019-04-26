@@ -1,17 +1,17 @@
 import React, {Component} from 'react'
-import {withRouter, Route, Switch} from 'react-router-dom'
-import SitterHome from './sitter-home'
+import {Link} from 'react-router-dom'
+
 class SitterSubnav extends Component {
   render() {
     return (
       <div>
-        <nav>
+        <nav className="sitter-subnav">
           <ul>
             <li>
-              <Route path="/SitterHome" component={SitterHome} />
+              <Link to="/sitterhome"> My Home </Link>
             </li>
             <li>
-              <Route path="/allDogs" />
+              <Link to="/allDogs"> All Pups </Link>
             </li>
           </ul>
         </nav>

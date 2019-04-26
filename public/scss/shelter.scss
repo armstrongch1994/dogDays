@@ -71,3 +71,24 @@ p {
 .add-dog-header {
   font-family: 'Open Sans Condensed', sans-serif;
 }
+
+.shelter-dogs-container {
+}
+.shelter-dogs-list {
+  list-style-type: none;
+  padding-inline-start: 0;
+  margin: 0 20px;
+}
+
+li.shelter-dog {
+  display: flex;
+  background-color: #eaecef;
+  margin: 5px 0;
+  &:hover {
+    background-color: #bac5d0;
+  }
+}
+li.shelter-dog > p {
+  font-size: 20px;
+  margin: 5px;
+}

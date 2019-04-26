@@ -10,7 +10,8 @@ import {
   SitterHome,
   ShelterHome,
   AddDog,
-  shelterDogs
+  shelterDogs,
+  userDogs
 } from './components'
 import {me} from './store'
 
@@ -34,16 +35,17 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/sitterhome" component={SitterHome} />
+            <Route path="/allDogs" component={userDogs} />
           </Switch>
         )}
         {isShelter && (
           <Switch>
             <Route path="/shelterhome" component={ShelterHome} />
             <Route path="/addDog" component={AddDog} />
-            <Route path="/allDogs" component={shelterDogs} />
+            <Route path="/allMyDogs" component={shelterDogs} />
           </Switch>
         )}
-        {/* Displays our Login component as a fallback */}
+        {/* Displays our carousel component as a fallback */}
         <Route component={Carousel} />
       </Switch>
     )
@@ -55,8 +57,6 @@ class Routes extends Component {
  */
 const mapState = state => {
   return {
-    // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
-    // Otherwise, state.user will be an empty object, and state.user.id will be falsey
     isLoggedIn: !!state.user.id,
     isShelter: state.user.userType === 'shelter',
     isSitter: state.user.userType === 'sitter'

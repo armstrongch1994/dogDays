@@ -6,16 +6,35 @@ class shelterDogs extends Component {
   componentDidMount() {
     this.props.loadShelterDogs(this.props.id)
   }
-  state = {}
+
   render() {
-    console.log('shelter-dogs props', this.props)
-    return <div>hello were on the sheler dog page</div>
+    console.log('shelter-dogs props', this.props.shelterDogs)
+    return (
+      <div className="shelter-dogs-container">
+        <p>All your current dogs available to sitters</p>
+        <ul className="shelter-dogs-list">
+          {this.props.shelterDogs.map(dog => {
+            return (
+              <li key={dog.id} className="shelter-dog">
+                <p> name: {dog.puppyName} | </p>
+                <p> age: {dog.age} | </p>
+                <p> gender: {dog.gender} | </p>
+                <p> image url: {dog.imgUrl} | </p>
+                <p> size: {dog.size} | </p>
+                <p>breed: {dog.breed} | </p>
+                <p> personality: {dog.personality} </p>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    )
   }
 }
 const mapState = state => {
   return {
     id: state.user.id,
-    shelterDogs: state.dog.shelterDogs
+    shelterDogs: state.dog.sheltersDogs
   }
 }
 const mapDispatch = dispatch => ({

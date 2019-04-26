@@ -24,21 +24,21 @@ class AddDog extends Component {
       [event.target.name]: event.target.value
     })
   }
-  handleImageChange(e) {
-    e.preventDefault()
+  // handleImageChange(e) {
+  //   e.preventDefault()
 
-    let reader = new FileReader()
-    let file = e.target.files[0]
+  //   let reader = new FileReader()
+  //   let file = e.target.files[0]
 
-    reader.onloadend = () => {
-      this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
-      })
-    }
+  //   reader.onloadend = () => {
+  //     this.setState({
+  //       file: file,
+  //       imagePreviewUrl: reader.result
+  //     })
+  //   }
 
-    reader.readAsDataURL(file)
-  }
+  //   reader.readAsDataURL(file)
+  // }
   handleSubmit(event) {
     event.preventDefault()
 
@@ -70,7 +70,7 @@ class AddDog extends Component {
           Please fill out the fields below to ensure pleasant playdates for your
           pups!{' '}
         </h3>
-        <div className="previewComponent">
+        <div className="addDogFormComponent">
           <form onSubmit={this.handleSubmit}>
             <div>
               <label htmlFor="puppyName">
