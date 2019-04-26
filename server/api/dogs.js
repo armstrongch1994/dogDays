@@ -14,8 +14,19 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     const newDog = await Dog.create(req.body)
-    console.log(newDog)
     res.json(newDog)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.get('/:id', async (req, res, next) => {
+  try {
+    let shelterId = Number(req.params.id)
+    const dogsByShelter = await Dog.findAll({
+      where: {userId: shelterId}
+    })
+    res.json(dogsByShelter)
   } catch (error) {
     next(error)
   }

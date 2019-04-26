@@ -9,7 +9,8 @@ import {
   Carousel,
   SitterHome,
   ShelterHome,
-  AddDog
+  AddDog,
+  shelterDogs
 } from './components'
 import {me} from './store'
 
@@ -39,6 +40,7 @@ class Routes extends Component {
           <Switch>
             <Route path="/shelterhome" component={ShelterHome} />
             <Route path="/addDog" component={AddDog} />
+            <Route path="/allDogs" component={shelterDogs} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

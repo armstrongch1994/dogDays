@@ -2,9 +2,11 @@ import axios from 'axios'
 import history from '../history'
 
 const ADD_DOG = 'ADD_DOG'
+const GET_SHELTERS_DOGS = 'GET_SHELTERS_DOGS'
 
 const initialState = {
-  dogs: []
+  dogs: [],
+  sheltersDogs: []
 }
 
 const addDog = newDog => ({
@@ -12,6 +14,10 @@ const addDog = newDog => ({
   newDog
 })
 
+const getSheltersDogs = sheltersDogs => ({
+  type: GET_SHELTERS_DOGS,
+  sheltersDogs
+})
 export const addDogThunk = newDog => async dispatch => {
   try {
     const {data} = await axios.post('/api/dogs', newDog)
@@ -21,10 +27,21 @@ export const addDogThunk = newDog => async dispatch => {
   }
 }
 
+export const getSheltersDogsThunk = shelterId => async dispatch => {
+  try {
+    const {data} = await axios.get(`/api/dogs/${shelterId}`)
+    dispatch(getSheltersDogs(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 const dogReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_DOG:
       return {...state, dogs: [...state.dogs, action.newDog]}
+    case GET_SHELTERS_DOGS:
+      return {...state, sheltersDogs: action.sheltersDogs}
     default:
       return state
   }
