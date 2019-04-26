@@ -11,12 +11,15 @@ const Dog = db.define('dog', {
   gender: {
     type: Sequelize.STRING
   },
-  file: {
+  imgUrl: {
     type: Sequelize.STRING
   },
-  imagePreviewUrl: {
-    type: Sequelize.TEXT
-  },
+  // file: {
+  //   type: Sequelize.STRING
+  // },
+  // imagePreviewUrl: {
+  //   type: Sequelize.TEXT
+  // },
   size: {
     type: Sequelize.STRING
   },

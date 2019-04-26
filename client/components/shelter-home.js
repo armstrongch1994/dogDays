@@ -8,8 +8,9 @@ class ShelterHome extends Component {
       puppyName: '',
       age: '',
       gender: '',
-      file: '',
-      imagePreviewUrl: '',
+      // file: '',
+      // imagePreviewUrl: '',
+      imgUrl: '',
       size: '',
       breed: '',
       personality: '',
@@ -45,23 +46,23 @@ class ShelterHome extends Component {
       puppyName: '',
       age: '',
       gender: '',
-      file: '',
-      imagePreviewUrl: '',
+      // file: '',
+      // imagePreviewUrl: '',
       size: '',
       breed: '',
       personality: ''
     })
   }
   render() {
-    let {imagePreviewUrl} = this.state
-    let $imagePreview = null
-    if (imagePreviewUrl) {
-      $imagePreview = <img src={imagePreviewUrl} />
-    } else {
-      $imagePreview = (
-        <div className="previewText">Please select an Image for Preview</div>
-      )
-    }
+    // let {imagePreviewUrl} = this.state
+    // let $imagePreview = null
+    // if (imagePreviewUrl) {
+    //   $imagePreview = <img src={imagePreviewUrl} />
+    // } else {
+    //   $imagePreview = (
+    //     <div className="previewText">Please select an Image for Preview</div>
+    //   )
+    // }
     return (
       <div>
         <h2>Welcome, {this.props.name}</h2>
@@ -94,38 +95,56 @@ class ShelterHome extends Component {
               <label htmlFor="gender">
                 <small>Gender</small>
               </label>
-              <input
+              <select
                 name="gender"
-                type="text"
                 value={this.state.gender}
+                onChange={this.handleChange}
+              >
+                <option value="male">male</option>
+                <option value="female">female</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="imgUrl">
+                <small>Image</small>
+              </label>
+              <input
+                name="imgUrl"
+                type="text"
+                value={this.state.imgUrl}
                 onChange={this.handleChange}
               />
             </div>
-            <div className="image-upload-container">
-              <input
+            {/* <div className="image-upload-container"> */}
+            {/* <input
                 className="fileInput"
                 type="file"
                 onChange={e => this.handleImageChange(e)}
-              />
-              <div className="imgPreview">{$imagePreview}</div>
-              {/* <button
+              /> */}
+            {/* <div className="imgPreview">{$imagePreview}</div> */}
+            {/* <button
                 className="submitButton"
                 type="submit"
                 onClick={e => this._handleSubmit(e)}
               >
                 Upload Image
               </button> */}
-            </div>
+            {/* </div> */}
             <div>
               <label htmlFor="size">
                 <small>Size</small>
               </label>
-              <input
+              <select
                 name="size"
-                type="text"
                 value={this.state.size}
                 onChange={this.handleChange}
-              />
+              >
+                <option value="extraSmall">Extra Small</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="extraLarge">Extra Large</option>
+              </select>
             </div>
             <div>
               <label htmlFor="breed">
@@ -142,12 +161,18 @@ class ShelterHome extends Component {
               <label htmlFor="personality">
                 <small>Personality Type</small>
               </label>
-              <input
+
+              <select
                 name="personality"
-                type="text"
                 value={this.state.personality}
                 onChange={this.handleChange}
-              />
+              >
+                <option value="lazy">Lazy</option>
+                <option value="Energetic">Energetic</option>
+                <option value="kidFriendly">Kid Friendly</option>
+                <option value="dogFriendly">Dog Friendly</option>
+                <option value="noShed">Shed Free</option>
+              </select>
             </div>
             <div className="button-wrapper">
               <button

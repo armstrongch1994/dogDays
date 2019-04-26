@@ -44,3 +44,18 @@ h3 {
   text-align: center;
   width: 500px;
 }
+
+.shelter-subnav ul {
+  display: flex;
+  list-style-type: none;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 16px;
+  background-color: #bac5d0;
+
+  li a {
+    color: white;
+    &:hover {
+      color: black;
+    }
+  }
+}

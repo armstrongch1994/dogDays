@@ -6,7 +6,7 @@ class ShelterSubnav extends Component {
   render() {
     return (
       <div>
-        <nav>
+        <nav className="shelter-subnav">
           <ul>
             <li>
               <Link to="shelterhome"> Shelter Home Page (Add dog) </Link>
