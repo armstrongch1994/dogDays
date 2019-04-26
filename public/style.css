@@ -85,6 +85,9 @@ p {
 .add-dog-header {
   font-family: 'Open Sans Condensed', sans-serif; }
 
+img {
+  max-width: 500px; }
+
 body {
   font-family: sans-serif; }
   body a {

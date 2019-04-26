@@ -8,21 +8,24 @@ class Carousel extends React.Component {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      adaptiveHeight: true,
+      arrows: true,
+      centerMode: true
     }
     return (
       <Slider {...settings}>
         <div>
-          <h3> Welcome Image </h3>
+          <img src="/images/carousel/C1.jpg" />
         </div>
         <div>
-          <h3> Want to Determine the breed of your rescue? Let us help! </h3>
+          <img src="/images/carousel/dogs/gus.jpg" />
         </div>
         <div>
-          <h3> Donate to one of the many Shelters on our site. </h3>
+          <img src="/images/carousel/C3.jpg" />
         </div>
         <div>
-          <h3>User of the Week </h3>
+          <img src="/images/carousel/C4.jpg" />
         </div>
       </Slider>
     )
