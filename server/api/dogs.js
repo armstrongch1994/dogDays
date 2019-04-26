@@ -15,10 +15,7 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     let dogURL = req.body.imgUrl
-    let dogData
-    whatDog(dogURL).then(doggyData => {
-      dogData = doggyData
-    })
+    let dogData = await whatDog(dogURL)
     if (dogData.isDog) {
       req.body.breed = dogData.breed
     }
