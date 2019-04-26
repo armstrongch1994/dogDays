@@ -7,7 +7,9 @@ import Login from './login'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div className="nav-bar">
-    <img className="logo" src="/images/logo/dogDaysLogoNew.jpg" />
+    <Link to="/home">
+      <img className="logo" src="/images/logo/dogDaysLogoNew.jpg" />
+    </Link>
     <nav>
       {isLoggedIn ? (
         <div className="right-nav">

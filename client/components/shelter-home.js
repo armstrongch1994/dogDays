@@ -12,7 +12,8 @@ class ShelterHome extends Component {
       imagePreviewUrl: '',
       size: '',
       breed: '',
-      personality: ''
+      personality: '',
+      userId: props.id
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -166,7 +167,8 @@ class ShelterHome extends Component {
 }
 const mapState = state => {
   return {
-    name: state.user.userName
+    name: state.user.userName,
+    id: state.user.id
   }
 }
 

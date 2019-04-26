@@ -77,3 +77,8 @@ User.beforeUpdate(setSaltAndPassword)
 User.beforeBulkCreate(users => {
   users.forEach(setSaltAndPassword)
 })
+// User.beforeCreate(user => {
+//   if (user.isShelter === 'on') {
+//     user.isShelter = true
+//   }
+// })

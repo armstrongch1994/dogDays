@@ -8,7 +8,8 @@ import {
   UserHome,
   Carousel,
   SitterHome,
-  ShelterHome
+  ShelterHome,
+  ShelterSubnav
 } from './components'
 import {me} from './store'
 
@@ -27,17 +28,16 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/home" component={Carousel} />
         {isSitter && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/sitterhome" component={SitterHome} />
-            <Route path="/home" component={Carousel} />
           </Switch>
         )}
         {isShelter && (
           <Switch>
             <Route path="/shelterhome" component={ShelterHome} />
-            <Route path="/home" component={Carousel} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
