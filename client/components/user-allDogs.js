@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getAllDogsThunk} from '../store/dog'
-
+import {Link} from 'react-router-dom'
 class userDogs extends Component {
   componentDidMount() {
     this.props.loadAllDogs()
@@ -10,21 +10,27 @@ class userDogs extends Component {
     console.log('all dogs', this.props.allDogs)
     return (
       <div className="all-dogs-container">
-        <h4 className="all-dogs-header"> All Dogs </h4>
+        <h1 className="all-dogs-header"> Meet our furry friends! </h1>
         <div className="all-dogs-list">
           {this.props.allDogs.map(dog => {
             return (
               <div key={dog.id} className="single-dog">
+                <div className="image-container">
+                  <img className="all-dog-image" src={dog.imgUrl} />
+                </div>
                 <div className="dog-content">
-                  <p> name: {dog.puppyName} </p>
+                  <h3>{dog.puppyName}</h3>
                   <p> age: {dog.age} </p>
                   <p> gender: {dog.gender} </p>
                   <p> size: {dog.size} </p>
                   <p>breed: {dog.breed} </p>
                   <p> personality: {dog.personality} </p>
-                </div>
-                <div className="image-container">
-                  <img className="all-dog-image" src={dog.imgUrl} />
+                  <p>
+                    Want to spend the day with {dog.puppyName}?
+                    <Link to={`/allDogs/${dog.id}`}>
+                      Check out his availability
+                    </Link>
+                  </p>
                 </div>
               </div>
             )

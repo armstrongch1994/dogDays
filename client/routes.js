@@ -11,7 +11,8 @@ import {
   ShelterHome,
   AddDog,
   shelterDogs,
-  userDogs
+  userDogs,
+  SingleDog
 } from './components'
 import {me} from './store'
 
@@ -35,7 +36,8 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/sitterhome" component={SitterHome} />
-            <Route path="/allDogs" component={userDogs} />
+            <Route exact path="/allDogs" component={userDogs} />
+            <Route path="/allDogs/:dogId" component={SingleDog} />
           </Switch>
         )}
         {isShelter && (

@@ -25,16 +25,16 @@ router.post('/', async (req, res, next) => {
     next(error)
   }
 })
-
+// need to change thing route to be the single dog route
 router.get('/:id', async (req, res, next) => {
   try {
-    let shelterId = Number(req.params.id)
-    console.log('shelterId', shelterId)
-    const dogsByShelter = await Dog.findAll({
-      where: {userId: shelterId}
+    let dogId = Number(req.params.id)
+    console.log('dogId', dogId)
+    const dogsById = await Dog.findOne({
+      where: {id: dogId}
     })
-    console.log('dogsByShelter', dogsByShelter)
-    res.json(dogsByShelter)
+    console.log('dogsById', dogsById)
+    res.json(dogsById)
   } catch (error) {
     next(error)
   }

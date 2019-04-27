@@ -9,8 +9,6 @@ class AddDog extends Component {
       puppyName: '',
       age: '',
       gender: '',
-      // file: '',
-      // imagePreviewUrl: '',
       imgUrl: '',
       size: '',
       breed: '',
@@ -25,21 +23,6 @@ class AddDog extends Component {
       [event.target.name]: event.target.value
     })
   }
-  // handleImageChange(e) {
-  //   e.preventDefault()
-
-  //   let reader = new FileReader()
-  //   let file = e.target.files[0]
-
-  //   reader.onloadend = () => {
-  //     this.setState({
-  //       file: file,
-  //       imagePreviewUrl: reader.result
-  //     })
-  //   }
-
-  //   reader.readAsDataURL(file)
-  // }
   handleSubmit(event) {
     event.preventDefault()
 
@@ -48,29 +31,24 @@ class AddDog extends Component {
       age: '',
       gender: '',
       imgUrl: '',
-      // file: '',
-      // imagePreviewUrl: '',
       size: '',
       breed: '',
       personality: ''
     })
   }
   render() {
-    // let {imagePreviewUrl} = this.state
-    // let $imagePreview = null
-    // if (imagePreviewUrl) {
-    //   $imagePreview = <img src={imagePreviewUrl} />
-    // } else {
-    //   $imagePreview = (
-    //     <div className="previewText">Please select an Image for Preview</div>
-    //   )
-    // }
     return (
       <div>
         <h3 className="add-dog-header">
           {' '}
-          Please fill out the fields below to ensure pleasant playdates for your
-          pups!{' '}
+          <p>
+            Please fill out the fields below to ensure an accurate
+            representation of your pup!
+          </p>
+          <p>
+            Don't know his/her breed? Upload a clear photo of them and we will
+            do our best to distiguish that for you!
+          </p>
         </h3>
         <div className="addDogFormComponent">
           <form onSubmit={this.handleSubmit}>
@@ -105,6 +83,7 @@ class AddDog extends Component {
                 value={this.state.gender}
                 onChange={this.handleChange}
               >
+                <option default>Gender</option>
                 <option value="male">male</option>
                 <option value="female">female</option>
               </select>
@@ -120,21 +99,6 @@ class AddDog extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            {/* <div className="image-upload-container"> */}
-            {/* <input
-                className="fileInput"
-                type="file"
-                onChange={e => this.handleImageChange(e)}
-              /> */}
-            {/* <div className="imgPreview">{$imagePreview}</div> */}
-            {/* <button
-                className="submitButton"
-                type="submit"
-                onClick={e => this._handleSubmit(e)}
-              >
-                Upload Image
-              </button> */}
-            {/* </div> */}
             <div>
               <label htmlFor="size">
                 <small>Size</small>
@@ -144,6 +108,7 @@ class AddDog extends Component {
                 value={this.state.size}
                 onChange={this.handleChange}
               >
+                <option default>Size</option>
                 <option value="extraSmall">Extra Small</option>
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
@@ -172,6 +137,7 @@ class AddDog extends Component {
                 value={this.state.personality}
                 onChange={this.handleChange}
               >
+                <option default>Personality Type</option>
                 <option value="lazy">Lazy</option>
                 <option value="mellow">mellow</option>
                 <option value="Energetic">Energetic</option>
