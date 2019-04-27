@@ -145,6 +145,10 @@ img {
 .single-dog-intro {
   font-family: 'Amatic SC', cursive; }
 
+.calendar-image {
+  display: flex;
+  align-items: center; }
+
 body {
   font-family: sans-serif; }
   body a {

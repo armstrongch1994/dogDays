@@ -1,8 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getSingleDogThunk} from '../store/dog'
+import Calendar from 'react-calendar'
 
 class SingleDog extends Component {
+  state = {
+    date: new Date()
+  }
   componentDidMount() {
     this.props.onLoadSingleDog()
   }
@@ -11,7 +15,14 @@ class SingleDog extends Component {
       this.props.onLoadSingleDog()
     }
   }
+  onChange = date => {
+    console.log(date)
+    this.setState({
+      date: date
+    })
+  }
   render() {
+    console.log('the date', this.state.date)
     return (
       <div>
         <h2 className="single-dog-intro">
@@ -21,7 +32,12 @@ class SingleDog extends Component {
         </h2>
         <div className="calendar-image">
           <img src={this.props.dog.imgUrl} />
+          <Calendar onChange={this.onChange} value={this.state.date} />
         </div>
+        <button type="submit">Confirm Date</button>
+        {/* clicking confirm date adds that date to to an array in the dogs data base and ideally blocks it off in the calendar
+        it also adds that dog to the users profile - so im a user logged in 
+        */}
       </div>
     )
   }

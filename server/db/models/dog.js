@@ -15,12 +15,6 @@ const Dog = db.define('dog', {
   imgUrl: {
     type: Sequelize.STRING
   },
-  // file: {
-  //   type: Sequelize.STRING
-  // },
-  // imagePreviewUrl: {
-  //   type: Sequelize.TEXT
-  // },
   size: {
     type: Sequelize.STRING
   },
@@ -29,6 +23,9 @@ const Dog = db.define('dog', {
   },
   personality: {
     type: Sequelize.STRING
+  },
+  bookings: {
+    type: Sequelize.ARRAY(Sequelize.TEXT)
   }
 })
 

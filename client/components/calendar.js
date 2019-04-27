@@ -5,7 +5,13 @@ class Sample extends Component {
   state = {
     value: new Date()
   }
-  onChange = value => this.setState({value})
+  onChange = value => {
+    console.log(value)
+    this.setState({
+      value
+    })
+  }
+
   render() {
     const {value} = this.state
 

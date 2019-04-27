@@ -5,6 +5,7 @@ const ADD_DOG = 'ADD_DOG'
 const GET_SHELTERS_DOGS = 'GET_SHELTERS_DOGS'
 const GET_ALL_DOGS = 'GET_ALL_DOGS'
 const GET_SINGLE_DOG = 'GET_SINGLE_DOG'
+const UPDATE_DOG_BOOKING = 'UPDATE_DOG_BOOKING'
 
 const initialState = {
   dogs: [],
@@ -32,6 +33,10 @@ const getSingleDog = singleDog => ({
   singleDog
 })
 
+const updateDogBooking = updatedDog => ({
+  type: UPDATE_DOG_BOOKING,
+  updatedDog
+})
 export const addDogThunk = newDog => async dispatch => {
   try {
     const {data} = await axios.post('/api/dogs', newDog)
@@ -63,6 +68,15 @@ export const getSingleDogThunk = id => async dispatch => {
   try {
     const {data} = await axios.get(`/api/dogs/${id}`)
     dispatch(getSingleDog(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const updateDogBookingThunk = (id, updateData) => async dispatch => {
+  try {
+    const {data} = await axios.put(`/api/dogs/${id}`)
+    dispatch(updateDogBooking(data))
   } catch (error) {
     console.error(error)
   }
