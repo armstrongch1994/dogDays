@@ -12,7 +12,8 @@ import {
   AddDog,
   shelterDogs,
   userDogs,
-  SingleDog
+  SingleDog,
+  confirmBookingPage
 } from './components'
 import {me} from './store'
 
@@ -38,6 +39,7 @@ class Routes extends Component {
             <Route path="/sitterhome" component={SitterHome} />
             <Route exact path="/allDogs" component={userDogs} />
             <Route path="/allDogs/:dogId" component={SingleDog} />
+            <Route path="/thankYou" component={confirmBookingPage} />
           </Switch>
         )}
         {isShelter && (

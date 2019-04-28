@@ -10,6 +10,7 @@ router.post('/:dogId', async (req, res, next) => {
     // req.body.dogId = dogId
     const newBooking = await Booking.create(req.body)
     console.log('NEW BOOKING AFTER CREATION', newBooking)
+
     res.json(newBooking)
   } catch (error) {
     next(error)
