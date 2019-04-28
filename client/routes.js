@@ -33,9 +33,11 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/home" component={Carousel} />
+
         {isSitter && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
+            <Route exact path="/" component={Carousel} />
             <Route path="/sitterhome" component={SitterHome} />
             <Route exact path="/allDogs" component={userDogs} />
             <Route path="/allDogs/:dogId" component={SingleDog} />

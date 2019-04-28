@@ -1,4 +1,5 @@
 import axios from 'axios'
+import history from '../history'
 
 const ADD_BOOKING = 'ADD_BOOKING'
 const GET_SINGLE_DOG_BOOKING = 'GET_SINGLE_DOG_BOOKING'
@@ -27,6 +28,7 @@ export const addBookingThunk = (newDate, dogId) => async dispatch => {
     }
     const {data} = await axios.post(`/api/bookings/${dogId}`, newBooking)
     dispatch(addBooking(data))
+    history.push('/thankYou')
   } catch (error) {
     console.error(error)
   }
