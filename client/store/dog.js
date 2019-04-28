@@ -75,7 +75,8 @@ export const getSingleDogThunk = id => async dispatch => {
 
 export const updateDogBookingThunk = (id, updateData) => async dispatch => {
   try {
-    const {data} = await axios.put(`/api/dogs/${id}`)
+    console.log(id, updateData)
+    const {data} = await axios.put(`/api/dogs/${id}`, updateData)
     dispatch(updateDogBooking(data))
   } catch (error) {
     console.error(error)

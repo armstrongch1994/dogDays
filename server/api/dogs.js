@@ -29,11 +29,9 @@ router.post('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     let dogId = Number(req.params.id)
-    console.log('dogId', dogId)
     const dogsById = await Dog.findOne({
       where: {id: dogId}
     })
-    console.log('dogsById', dogsById)
     res.json(dogsById)
   } catch (error) {
     next(error)
@@ -42,12 +40,15 @@ router.get('/:id', async (req, res, next) => {
 
 router.put('/:id', async (req, res, next) => {
   try {
+    // find the single dog that were trying to update
     let dogId = Number(req.params.id)
     const dogById = await Dog.findOne({
       where: {id: dogId}
     })
+    // if we find that dog in our database we need to update it with that content that weve passed in
     if (dogById) {
-      dogById.update()
+      console.log('we found a dog with this id', req.body)
+      let updatedDog = dogById.update(req.body)
     }
   } catch (error) {
     next(error)

@@ -1,5 +1,6 @@
 const User = require('./user')
 const Dog = require('./dog')
+const Booking = require('./booking')
 /**
  * If we had any associations to make, this would be a great place to put them!
  * ex. if we had another model called BlogPost, we might say:
@@ -16,7 +17,10 @@ const Dog = require('./dog')
 
 User.hasMany(Dog)
 Dog.belongsTo(User)
+Dog.hasMany(Booking)
+Booking.belongsTo(Dog)
 module.exports = {
   User,
-  Dog
+  Dog,
+  Booking
 }

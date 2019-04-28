@@ -149,6 +149,9 @@ img {
   display: flex;
   align-items: center; }
 
+.react-calendar__month-view__days__day--weekend {
+  color: black; }
+
 body {
   font-family: sans-serif; }
   body a {

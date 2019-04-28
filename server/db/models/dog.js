@@ -23,10 +23,10 @@ const Dog = db.define('dog', {
   },
   personality: {
     type: Sequelize.STRING
-  },
-  bookings: {
-    type: Sequelize.ARRAY(Sequelize.TEXT)
   }
+  // bookings: {
+  //   type: Sequelize.ARRAY(Sequelize.TEXT)
+  // }
 })
 
 module.exports = Dog

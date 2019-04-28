@@ -132,5 +132,9 @@ Now, you should be deployed!
 
 Why do all of these steps? The big reason is because we don't want our production server to be cluttered up with dev dependencies like webpack, but at the same time we don't want our development git-tracking to be cluttered with production build files like bundle.js! By doing these steps, we make sure our development and production environments both stay nice and clean!
 
-/_font-family: 'Alegreya Sans SC', sans-serif;
-font-family: 'Open Sans Condensed', sans-serif;_/
+
+
+USER CASES 
+* user has many bookings (they can book several differnt dogs for differnet days)
+* dog has many bookings (they can be booked for several different days)
+* 
