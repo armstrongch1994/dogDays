@@ -5,18 +5,12 @@ import {addBookingThunk, getSingleDogBookingThunk} from '../store/bookings'
 import Calendar from 'react-calendar'
 
 function dateParser(date) {
-  console.log(date)
-
   let indexOfT = date.indexOf('T')
 
   let removeTime = date.slice(1, indexOfT)
 
   let YMD = removeTime.split('-')
   return YMD
-  //   let [year, month, day] = YMD
-  //   year = Number(year)
-  //   month = Number(month)
-  //   day = Number(day)
 }
 class SingleDog extends Component {
   constructor() {
@@ -25,7 +19,6 @@ class SingleDog extends Component {
       date: new Date()
     }
     this.onChange = this.onChange.bind(this)
-    // this.tileDisabled = this.tileDisabled.bind(this)
   }
   componentDidMount() {
     this.props.onLoadSingleDog()
@@ -43,24 +36,9 @@ class SingleDog extends Component {
       date: date
     })
   }
-  // tileDisabled = (date, view) => {
-  //   console.log('date inside of tileDisabled', date)
-  //   console.log('view inside of tileDisabled', view)
-  //   let parsedDates = this.props.bookings.map(obj => {
-  //     console.log(obj.date)
-  //     //return JSON.parse(obj.date)
-  //   })
-  //   console.log('PARSED DATES --> ', parsedDates)
-  // }
+
   render() {
-    // console.log('the date', this.state.date)
-    // console.log('BOOKINGS ---> ', this.props.bookings)
     let bookings = this.props.bookings
-    // let parsedBookings = this.props.bookings.map(obj => {
-    //   console.log('OBJ INSIDE MAP', obj)
-    // })
-    // console.log('PARSEDBOOKINGS', parsedBookings)
-    // console.log(Array.isArray(this.props.bookings))
 
     if (bookings.length === 0) {
       return (
@@ -91,27 +69,19 @@ class SingleDog extends Component {
             }}
             type="submit"
           >
-            Confirm Date
+            Confirm
           </button>
-          {/* clicking confirm date adds that date to to an array in the dogs data base and ideally blocks it off in the calendar
-          it also adds that dog to the users profile - so im a user logged in 
-          */}
         </div>
       )
     } else {
       const disabledDates = bookings[0].map(obj => {
-        // let date = JSON.parse(obj.date)
-        // console.log('old date', obj.date)
-        // console.log('date parser func', dateParser(date))
         const YMD = dateParser(obj.date)
         let [year, month, day] = YMD
         year = Number(year)
-        month = Number(month)
+        month = Number(month) - 1
         day = Number(day)
-        console.log(year, month, day)
         return new Date(year, month, day)
       })
-      console.log(disabledDates)
       return (
         <div>
           <div>bookings has a length</div>
@@ -152,9 +122,6 @@ class SingleDog extends Component {
           >
             Confirm Date
           </button>
-          {/* clicking confirm date adds that date to to an array in the dogs data base and ideally blocks it off in the calendar
-          it also adds that dog to the users profile - so im a user logged in 
-          */}
         </div>
       )
     }
