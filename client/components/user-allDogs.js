@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getAllDogsThunk} from '../store/dog'
 import {Link} from 'react-router-dom'
+
 class userDogs extends Component {
   componentDidMount() {
     this.props.loadAllDogs()

@@ -120,8 +120,9 @@ img {
 .single-dog {
   display: flex;
   align-items: center;
-  max-width: 50%;
-  margin: 5px auto; }
+  max-width: 40%;
+  margin: 10px auto;
+  border: 1px solid #bac5d0; }
 
 .dog-content {
   margin-left: 8px; }
@@ -132,7 +133,8 @@ img {
   font-family: 'Alegreya Sans SC', sans-serif; }
 
 .dog-content a {
-  color: #bac5d0; }
+  color: #bac5d0;
+  display: block; }
 
 .dog-content a:hover {
   color: pink; }
@@ -143,7 +145,8 @@ img {
   font-size: 24px; }
 
 .image-container img {
-  max-height: 300px; }
+  height: 100px;
+  width: 100px; }
 
 .single-dog-intro {
   font-family: 'Amatic SC', cursive;
@@ -164,8 +167,14 @@ img {
   display: block; }
 
 .confirm-booking-button {
-  width: 100%;
   font-family: 'Alegreya Sans SC', sans-serif; }
+
+.confirm-booking-container {
+  display: flex;
+  align-items: center; }
+
+.button-text-container {
+  display: flex; }
 
 .footer {
   border-top: 1px solid #bac5d0;
@@ -212,7 +221,8 @@ body {
   body button {
     padding: 5px;
     border: 2px solid #bac5d0;
-    background-color: white; }
+    background-color: white;
+    margin: 5px; }
     body button:hover {
       background-color: #bac5d0;
       color: white; }

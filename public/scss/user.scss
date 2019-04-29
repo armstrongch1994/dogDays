@@ -20,8 +20,9 @@
 .single-dog {
   display: flex;
   align-items: center;
-  max-width: 50%;
-  margin: 5px auto;
+  max-width: 40%;
+  margin: 10px auto;
+  border: 1px solid #bac5d0;
 }
 .dog-content {
   margin-left: 8px;
@@ -34,6 +35,7 @@
 .dog-content {
   a {
     color: #bac5d0;
+    display: block;
   }
   a:hover {
     color: pink;
@@ -45,7 +47,8 @@
   font-size: 24px;
 }
 .image-container img {
-  max-height: 300px;
+  height: 100px;
+  width: 100px;
 }
 
 .single-dog-intro {
@@ -74,6 +77,15 @@
 }
 
 .confirm-booking-button {
-  width: 100%;
+  //width: 100%;
   font-family: 'Alegreya Sans SC', sans-serif;
+}
+.confirm-booking-container {
+  display: flex;
+  align-items: center;
+}
+.button-text-container {
+  display: flex;
+}
+.confirm-date-button {
 }
