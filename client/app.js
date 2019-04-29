@@ -6,6 +6,7 @@ import {Navbar} from './components'
 import Routes from './routes'
 import {ShelterSubnav} from './components'
 import {SitterSubnav} from './components'
+import {Footer} from './components'
 class App extends Component {
   componentDidMount() {
     console.log('component mounted')
@@ -19,6 +20,7 @@ class App extends Component {
           <Navbar />
           <ShelterSubnav />
           <Routes />
+          <Footer />
         </div>
       )
     } else if (isSitter) {
@@ -27,6 +29,7 @@ class App extends Component {
           <Navbar />
           <SitterSubnav />
           <Routes />
+          <Footer />
         </div>
       )
     }
@@ -34,6 +37,7 @@ class App extends Component {
       <div>
         <Navbar />
         <Routes />
+        <Footer />
       </div>
     )
   }
