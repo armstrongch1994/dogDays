@@ -27,23 +27,6 @@ nav a {
 h3 {
   margin-left: 15px; }
 
-.fileInput {
-  border-bottom: 4px solid lightgray;
-  border-right: 4px solid lightgray;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
-  padding: 10px;
-  margin: 15px;
-  cursor: pointer; }
-
-.imgPreview {
-  text-align: center;
-  margin: 5px 15px;
-  max-width: 200px; }
-  .imgPreview img {
-    width: 100%;
-    height: auto; }
-
 .previewText {
   width: 100%;
   margin-top: 20px; }
@@ -90,7 +73,9 @@ p {
 .add-dog-header p {
   font-family: 'Alegreya Sans SC', sans-serif; }
 
-.addDogFormComponent {
+.addDogFormComponent,
+.signIn,
+.signupFormComponent {
   font-family: 'Open Sans Condensed', sans-serif; }
 
 .shelter-dogs-list {
@@ -173,6 +158,16 @@ img {
   display: inline-block;
   font-size: 12px;
   font-family: 'Alegreya Sans SC', sans-serif; }
+
+.confirm-subscription {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 30px;
+  text-align: center; }
+
+.booking-confirmation {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 30px;
+  text-align: center; }
 
 body {
   font-family: sans-serif; }

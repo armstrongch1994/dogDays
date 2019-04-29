@@ -4,7 +4,7 @@ class confirmBooking extends Component {
   state = {}
   render() {
     return (
-      <div>
+      <div className="booking-confirmation">
         Thank you for reserving A day with a pup! We know you wont regret it
       </div>
     )

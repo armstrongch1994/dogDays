@@ -6,7 +6,11 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.props.handleSubmit} name={this.props.name}>
+        <form
+          className="signIn"
+          onSubmit={this.props.handleSubmit}
+          name={this.props.name}
+        >
           <div>
             <label htmlFor="email">
               <small>Email</small>

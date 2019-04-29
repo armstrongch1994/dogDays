@@ -26,23 +26,32 @@ class footer extends Component {
         <div className="copyright">
           <i className="fa fa-copyright" /> {this.state.currentYear} Dog Days
         </div>
-        <label htmlFor="email">
-          Get updated whenever a shelter adds a new dog{' '}
-        </label>
-        <input name="email" type="text" />
-        <button type="submit" onClick={() => this.props.addSubscriber(event)}>
-          {' '}
-          Subscribe
-        </button>
+        <form onSubmit={this.props.handleSubmit}>
+          <label htmlFor="email">
+            Get updated whenever a shelter adds a new dog{' '}
+          </label>
+          <input name="email" type="text" />
+          <button type="submit">Subscribe</button>
+        </form>
       </div>
     )
   }
 }
-const mapDispatch = dispatch => ({
-  addSubscriber: event => {
-    event.preventDefault()
-    dispatch(newSubscriberThunk(event.target.email.value))
-  }
-})
+// const mapDispatch = dispatch => ({
+//   addSubscriber: event => {
+//     event.preventDefault()
+//     console.log('event.target', event.target)
+//     dispatch(newSubscriberThunk(event.target.email.value))
+//   }
+// })
 
+const mapDispatch = dispatch => {
+  return {
+    handleSubmit(evt) {
+      evt.preventDefault()
+      const email = evt.target.email.value
+      dispatch(newSubscriberThunk(email))
+    }
+  }
+}
 export default connect(null, mapDispatch)(footer)

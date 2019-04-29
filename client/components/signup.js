@@ -20,7 +20,11 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.props.handleSubmit} name={this.props.name}>
+        <form
+          className="signupFormComponent"
+          onSubmit={this.props.handleSubmit}
+          name={this.props.name}
+        >
           <div>
             <label htmlFor="email">
               <small>Email</small>

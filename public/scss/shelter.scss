@@ -2,25 +2,6 @@ h3 {
   margin-left: 15px;
 }
 
-.fileInput {
-  border-bottom: 4px solid lightgray;
-  border-right: 4px solid lightgray;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
-  padding: 10px;
-  margin: 15px;
-  cursor: pointer;
-}
-.imgPreview {
-  text-align: center;
-  margin: 5px 15px;
-  max-width: 200px;
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
-
 .previewText {
   width: 100%;
   margin-top: 20px;
@@ -78,7 +59,9 @@ p {
     font-family: 'Alegreya Sans SC', sans-serif;
   }
 }
-.addDogFormComponent {
+.addDogFormComponent,
+.signIn,
+.signupFormComponent {
   font-family: 'Open Sans Condensed', sans-serif;
 }
 

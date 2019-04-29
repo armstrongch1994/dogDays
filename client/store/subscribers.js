@@ -12,22 +12,28 @@ const addSubscriber = newSubscriber => ({
 })
 
 export const newSubscriberThunk = email => async dispatch => {
+  console.log(email)
+  console.log(typeof email)
   try {
     const subscriber = {
       email
     }
     const {data} = await axios.post('/api/subscribers', subscriber)
+    console.log('data', data)
     dispatch(addSubscriber(data))
     history.push('./confirmSubscriber')
   } catch (error) {
-    console(error)
+    console.error(error)
   }
 }
 
 const subscriberReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_SUBSCRIBER:
-      return {...state, subscribers: [...state.newSubscriber]}
+      return {
+        ...state,
+        subscribers: [...state.subscribers, action.newSubscriber]
+      }
     default:
       return state
   }
