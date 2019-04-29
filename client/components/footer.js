@@ -27,7 +27,7 @@ class footer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="footer">
         <h1>Dog Days</h1>
         <div>
           <i className="fa fa-copyright" /> {this.state.currentYear}
