@@ -21,6 +21,9 @@ img.logo {
 nav a {
   color: #18181a; }
 
+nav a:hover {
+  color: pink; }
+
 .right-nav {
   position: relative; }
 
@@ -118,14 +121,21 @@ img {
   display: flex;
   align-items: center;
   max-width: 50%;
-  margin: 0 auto; }
+  margin: 5px auto; }
 
 .dog-content {
   margin-left: 8px; }
 
 .dog-content > p {
   margin-block-start: 0;
-  margin-block-end: 0; }
+  margin-block-end: 0;
+  font-family: 'Alegreya Sans SC', sans-serif; }
+
+.dog-content a {
+  color: #bac5d0; }
+
+.dog-content a:hover {
+  color: pink; }
 
 .dog-content > h3 {
   font-family: 'Amatic SC', cursive;
@@ -133,10 +143,11 @@ img {
   font-size: 24px; }
 
 .image-container img {
-  max-height: 200px; }
+  max-height: 300px; }
 
 .single-dog-intro {
-  font-family: 'Amatic SC', cursive; }
+  font-family: 'Amatic SC', cursive;
+  text-align: center; }
 
 .calendar-image {
   display: flex;
@@ -144,6 +155,17 @@ img {
 
 .react-calendar__month-view__days__day--weekend {
   color: black; }
+
+.user-welcome-banner {
+  display: inherit; }
+
+.user-welcome img {
+  margin: 0 auto;
+  display: block; }
+
+.confirm-booking-button {
+  width: 100%;
+  font-family: 'Alegreya Sans SC', sans-serif; }
 
 .footer {
   border-top: 1px solid #bac5d0;
@@ -160,14 +182,20 @@ img {
   font-family: 'Alegreya Sans SC', sans-serif; }
 
 .confirm-subscription {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Amatic SC', cursive;
+  margin: 0;
   font-size: 30px;
   text-align: center; }
 
 .booking-confirmation {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Amatic SC', cursive;
+  margin: 0;
   font-size: 30px;
   text-align: center; }
+
+.confirm-booking img {
+  display: block;
+  margin: 0 auto; }
 
 body {
   font-family: sans-serif; }

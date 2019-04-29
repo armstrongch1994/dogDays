@@ -41,6 +41,7 @@ export const addDogThunk = newDog => async dispatch => {
   try {
     const {data} = await axios.post('/api/dogs', newDog)
     dispatch(addDog(data))
+    history.push('/confirmDogSubmission')
   } catch (err) {
     console.error(err)
   }

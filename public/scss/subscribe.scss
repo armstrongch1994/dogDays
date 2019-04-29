@@ -1,10 +1,18 @@
 .confirm-subscription {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Amatic SC', cursive;
+  margin: 0;
   font-size: 30px;
   text-align: center;
 }
 .booking-confirmation {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Amatic SC', cursive;
+  margin: 0;
   font-size: 30px;
   text-align: center;
+}
+.confirm-booking {
+  img {
+    display: block;
+    margin: 0 auto;
+  }
 }

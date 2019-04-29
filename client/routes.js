@@ -14,7 +14,8 @@ import {
   userDogs,
   SingleDog,
   confirmBookingPage,
-  ConfirmSubscriptionPage
+  ConfirmSubscriptionPage,
+  ConfirmDogSubmission
 } from './components'
 import {me} from './store'
 
@@ -51,6 +52,10 @@ class Routes extends Component {
             <Route path="/shelterhome" component={ShelterHome} />
             <Route path="/addDog" component={AddDog} />
             <Route path="/allMyDogs" component={shelterDogs} />
+            <Route
+              path="/confirmDogSubmission"
+              component={ConfirmDogSubmission}
+            />
           </Switch>
         )}
         {/* Displays our carousel component as a fallback */}

@@ -59,18 +59,18 @@ class SingleDog extends Component {
           </div>
           <div className="confirm-booking-button">
             Would you like to confirm your booking?
+            <button
+              onClick={() => {
+                this.props.updateDogAvailability(
+                  this.state.date,
+                  this.props.dog.id
+                )
+              }}
+              type="submit"
+            >
+              Confirm
+            </button>
           </div>
-          <button
-            onClick={() => {
-              this.props.updateDogAvailability(
-                this.state.date,
-                this.props.dog.id
-              )
-            }}
-            type="submit"
-          >
-            Confirm
-          </button>
         </div>
       )
     } else {
@@ -84,7 +84,6 @@ class SingleDog extends Component {
       })
       return (
         <div>
-          <div>bookings has a length</div>
           <h2 className="single-dog-intro">
             Meet {this.props.dog.puppyName} - a {this.props.dog.age} year old{' '}
             {this.props.dog.breed}. Typically, {this.props.dog.puppyName} is{' '}

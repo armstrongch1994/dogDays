@@ -7,10 +7,10 @@ class userDogs extends Component {
     this.props.loadAllDogs()
   }
   render() {
-    console.log('all dogs', this.props.allDogs)
     return (
       <div className="all-dogs-container">
         <h1 className="all-dogs-header"> Meet our furry friends! </h1>
+
         <div className="all-dogs-list">
           {this.props.allDogs.map(dog => {
             return (
@@ -20,15 +20,23 @@ class userDogs extends Component {
                 </div>
                 <div className="dog-content">
                   <h3>{dog.puppyName}</h3>
-                  <p> age: {dog.age} </p>
-                  <p> gender: {dog.gender} </p>
-                  <p> size: {dog.size} </p>
-                  <p>breed: {dog.breed} </p>
-                  <p> personality: {dog.personality} </p>
                   <p>
+                    <b>gender:</b>
+                    {dog.gender}{' '}
+                  </p>
+                  <p>
+                    {' '}
+                    <b>size:</b> {dog.size}{' '}
+                  </p>
+                  <p>
+                    {' '}
+                    <b>personality:</b>
+                    {dog.personality}{' '}
+                  </p>
+                  <p className="spend-day">
                     Want to spend the day with {dog.puppyName}?
                     <Link to={`/allDogs/${dog.id}`}>
-                      Check out his availability
+                      Check availability <i class="fa fa-arrow-right" />
                     </Link>
                   </p>
                 </div>

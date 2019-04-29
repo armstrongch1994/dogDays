@@ -60,7 +60,7 @@ class Signup extends Component {
               <div> {this.props.error.response.data} </div>
             )}
         </form>
-        <a href="/auth/google">{this.props.displayName} with Google</a>
+        {/* <a href="/auth/google">{this.props.displayName} with Google</a> */}
       </div>
     )
   }

@@ -12,14 +12,11 @@ const addSubscriber = newSubscriber => ({
 })
 
 export const newSubscriberThunk = email => async dispatch => {
-  console.log(email)
-  console.log(typeof email)
   try {
     const subscriber = {
       email
     }
     const {data} = await axios.post('/api/subscribers', subscriber)
-    console.log('data', data)
     dispatch(addSubscriber(data))
     history.push('./confirmSubscriber')
   } catch (error) {

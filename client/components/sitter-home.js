@@ -4,12 +4,15 @@ import {connect} from 'react-redux'
 class SitterHome extends Component {
   render() {
     return (
-      <div>
+      <div className="user-welcome">
         <h1 className="welcome-banner">
           Welcome, {this.props.name}! Thank you for joining us! We hope you
           enjoy your next pup playdate!
         </h1>
-        <img src="/images/dogs/welcomeImg.jpg" />
+        <img
+          className="user-welcome-banner"
+          src="/images/dogs/welcomeImg.jpg"
+        />
       </div>
     )
   }

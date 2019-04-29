@@ -4,8 +4,12 @@ class confirmBooking extends Component {
   state = {}
   render() {
     return (
-      <div className="booking-confirmation">
-        Thank you for reserving A day with a pup! We know you wont regret it
+      <div className="confirm-booking">
+        <h1 className="booking-confirmation">
+          Thank you for reserving a booking with this pup! They're anxiously
+          awaiting your date.
+          <img src="/images/dogs/waiting-dog.jpg" />
+        </h1>
       </div>
     )
   }

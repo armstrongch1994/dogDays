@@ -20,4 +20,6 @@ export {default as calendarSample} from './calendar.js'
 export {default as confirmBookingPage} from './confirm-booking.js'
 export {default as Footer} from './footer'
 export {default as ConfirmSubscriptionPage} from './confirm-subscription.js'
+export {default as ConfirmDogSubmission} from './DogSubmission.js'
+
 //export {Login, Signup} from './auth-form'
