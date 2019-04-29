@@ -82,7 +82,15 @@ h3 {
 p {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-.add-dog-header {
+.add-dog-header h1 {
+  font-family: 'Amatic SC', cursive;
+  text-align: center;
+  color: #bac5d0; }
+
+.add-dog-header p {
+  font-family: 'Alegreya Sans SC', sans-serif; }
+
+.addDogFormComponent {
   font-family: 'Open Sans Condensed', sans-serif; }
 
 .shelter-dogs-list {
@@ -152,6 +160,20 @@ img {
 .react-calendar__month-view__days__day--weekend {
   color: black; }
 
+.footer {
+  border-top: 1px solid #bac5d0;
+  font-family: 'Amatic SC', cursive;
+  text-align: center; }
+  .footer label {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 12px;
+    display: block; }
+
+.copyright {
+  display: inline-block;
+  font-size: 12px;
+  font-family: 'Alegreya Sans SC', sans-serif; }
+
 body {
   font-family: sans-serif; }
   body a {
@@ -164,5 +186,12 @@ body {
   body form div {
     margin: 1em;
     display: inline-block; }
+  body button {
+    padding: 5px;
+    border: 2px solid #bac5d0;
+    background-color: white; }
+    body button:hover {
+      background-color: #bac5d0;
+      color: white; }
 
 /*# sourceMappingURL=style.css.map*/

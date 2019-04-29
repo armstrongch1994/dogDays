@@ -1,10 +1,6 @@
 import React, {Component} from 'react'
-function createCurrentYear() {
-  let date = new Date()
-  console.log(date)
-  return date.getFullYear()
-}
-
+import {connect} from 'react-redux'
+import {newSubscriberThunk} from '../store/subscribers'
 class footer extends Component {
   constructor() {
     super()
@@ -17,9 +13,7 @@ class footer extends Component {
   }
   createCurrentYear() {
     let date = new Date()
-    console.log(date)
     let currentYear = date.getFullYear()
-    console.log('set the sage')
     this.setState({
       currentYear
     })
@@ -28,17 +22,27 @@ class footer extends Component {
   render() {
     return (
       <div className="footer">
-        <h1>Dog Days</h1>
-        <div>
-          <i className="fa fa-copyright" /> {this.state.currentYear}
+        <h3>Dog Days</h3>
+        <div className="copyright">
+          <i className="fa fa-copyright" /> {this.state.currentYear} Dog Days
         </div>
         <label htmlFor="email">
-          Subscribe to get updates when a new dog is added to the site!{' '}
+          Get updated whenever a shelter adds a new dog{' '}
         </label>
         <input name="email" type="text" />
+        <button type="submit" onClick={() => this.props.addSubscriber(event)}>
+          {' '}
+          Subscribe
+        </button>
       </div>
     )
   }
 }
+const mapDispatch = dispatch => ({
+  addSubscriber: event => {
+    event.preventDefault()
+    dispatch(newSubscriberThunk(event.target.email.value))
+  }
+})
 
-export default footer
+export default connect(null, mapDispatch)(footer)

@@ -39,17 +39,14 @@ class AddDog extends Component {
   render() {
     return (
       <div>
-        <h3 className="add-dog-header">
+        <div className="add-dog-header">
           {' '}
-          <p>
-            Please fill out the fields below to ensure an accurate
-            representation of your pup!
-          </p>
+          <h1>ADD YOUR PUPS!</h1>
           <p>
             Don't know his/her breed? Upload a clear photo of them and we will
             do our best to distiguish that for you!
           </p>
-        </h3>
+        </div>
         <div className="addDogFormComponent">
           <form onSubmit={this.handleSubmit}>
             <div>
@@ -168,8 +165,6 @@ const mapState = state => {
 
 const mapDispatch = dispatch => ({
   addDog: newDog => {
-    console.log('newDogObj', newDog)
-
     dispatch(addDogThunk(newDog))
   }
 })

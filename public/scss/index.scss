@@ -10,6 +10,7 @@
 @import './shelter.scss';
 @import './carousel.scss';
 @import './user.scss';
+@import './footer.scss';
 body {
   font-family: sans-serif;
 
@@ -29,5 +30,14 @@ body {
   form div {
     margin: 1em;
     display: inline-block;
+  }
+  button {
+    padding: 5px;
+    border: 2px solid #bac5d0;
+    background-color: white;
+    &:hover {
+      background-color: #bac5d0;
+      color: white;
+    }
   }
 }

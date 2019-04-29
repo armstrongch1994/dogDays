@@ -13,7 +13,8 @@ import {
   shelterDogs,
   userDogs,
   SingleDog,
-  confirmBookingPage
+  confirmBookingPage,
+  ConfirmSubscriptionPage
 } from './components'
 import {me} from './store'
 
@@ -33,7 +34,7 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/home" component={Carousel} />
-
+        <Route path="/confirmSubscriber" component={ConfirmSubscriptionPage} />
         {isSitter && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -42,6 +43,7 @@ class Routes extends Component {
             <Route exact path="/allDogs" component={userDogs} />
             <Route path="/allDogs/:dogId" component={SingleDog} />
             <Route path="/thankYou" component={confirmBookingPage} />
+            /confirmSubscriber
           </Switch>
         )}
         {isShelter && (

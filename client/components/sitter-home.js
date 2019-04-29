@@ -9,6 +9,7 @@ class SitterHome extends Component {
           Welcome, {this.props.name}! Thank you for joining us! We hope you
           enjoy your next pup playdate!
         </h1>
+        <img src="/images/dogs/welcomeImg.jpg" />
       </div>
     )
   }
