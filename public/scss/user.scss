@@ -83,9 +83,17 @@
 .confirm-booking-container {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 .button-text-container {
   display: flex;
+  flex-direction: column;
+  align-self: flex-end;
 }
 .confirm-date-button {
+}
+
+.MuiCardMedia-root-30 {
+  width: 100px;
+  height: 100px;
 }

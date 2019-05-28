@@ -90,24 +90,23 @@ class SingleDog extends Component {
             {this.props.dog.personality}!
           </h2>
           <div className="confirm-booking-container">
-            <div className="calendar-image">
-              <img src={this.props.dog.imgUrl} />
-              <Calendar
-                onChange={this.onChange}
-                value={this.state.date}
-                activeStartDate={new Date()}
-                minDate={new Date()}
-                tileDisabled={({date, view}) =>
-                  view === 'month' &&
-                  disabledDates.some(
-                    disabledDate =>
-                      date.getFullYear() === disabledDate.getFullYear() &&
-                      date.getMonth() === disabledDate.getMonth() &&
-                      date.getDate() === disabledDate.getDate()
-                  )
-                }
-              />
-            </div>
+            <img src={this.props.dog.imgUrl} />
+            <Calendar
+              onChange={this.onChange}
+              value={this.state.date}
+              activeStartDate={new Date()}
+              minDate={new Date()}
+              tileDisabled={({date, view}) =>
+                view === 'month' &&
+                disabledDates.some(
+                  disabledDate =>
+                    date.getFullYear() === disabledDate.getFullYear() &&
+                    date.getMonth() === disabledDate.getMonth() &&
+                    date.getDate() === disabledDate.getDate()
+                )
+              }
+            />
+
             <div className="button-text-container">
               <div className="confirm-booking-button">
                 Would you like to confirm your booking?

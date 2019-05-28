@@ -171,10 +171,17 @@ img {
 
 .confirm-booking-container {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: space-evenly; }
 
 .button-text-container {
-  display: flex; }
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end; }
+
+.MuiCardMedia-root-30 {
+  width: 100px;
+  height: 100px; }
 
 .footer {
   border-top: 1px solid #bac5d0;
