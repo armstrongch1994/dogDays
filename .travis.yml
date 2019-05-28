@@ -16,14 +16,14 @@ install:
 before_script:
   - psql -c 'create database "dogdays-test";' -U postgres # remember to change this name if you change it elsewhere (e.g. package.json)
 script:
-  - npm test             # test the code
+  - npm test # test the code
   - npm run build-client # make the bundle
 
-# before_deploy:
-#   - rm -rf node_modules # omit from the tarball, since we skip cleanup
-# deploy:
-#   skip_cleanup: true # prevents travis from deleting the build
-#   provider: heroku
-#   app: YOUR-HEROKU-APP-NAME-HERE # see README
-#   api_key:
-#     secure: YOUR-***ENCRYPTED***-API-KEY-HERE # see README
+before_deploy:
+  - rm -rf node_modules # omit from the tarball, since we skip cleanup
+deploy:
+  skip_cleanup: true # prevents travis from deleting the build
+  provider: heroku
+  app: dog-days-stackathon # see README
+  api_key:
+    secure: N8TO7YFHPoqE2CUIBy3jeGEhscVRmJUsF2nlWlhLLPwSlrAxp357mTme52UeW4BGAEPHNHY7trdo2xpqU9seqAOsZcT0mxe8MKxAh/sCm31wCnaZDRMgeLKw15qnJHoFm1vyHAkvhOlQ/31Ga8c/R8nCHOrsKiOQ+gkteUE3lh8nRrhZTrd2fGENEy5RW7cXNiKBy+5d5cDjXYRmr3UBk8NfVoXtioJDDJXlgAkijhwz5vcuFpUrqquERfdCJ+ULPFhPiTYvkDzwwwG4OfJpNgp/OGYWNXrjH8Ra5INvU0N85bknA75blYHZ5sjw1idaJJJo5eZkQ3NzZAokl8FXQ7oTMkHjhlI8i1zHOPypeV/2TYM1/R/zwqM2MR1ogZtKKLb4a78dJCpYZJRtBiY1SjEVFsMMQ5JE+J5IEdz/Ipnr9sn3NxMRuu1NmwcPOU/aUd/Aw2c+9OJQbs19L5rPPqQF4m+AWY73J6qv64o3hiB5godfIiwhnknZCJk3lT94U9kadbbSBuKv3gZqcoa+wDXf9KHkRJiROVTBCfP7R5Z5n9VOvnPCFfwUIcum+Mqr3eUyFtu+/ID9R4SDI9Z+6lnQ35/BHja3td+LRNzfGFO+VBZuOCDBE/HzizVBjMfzhpYwt59Je9HzaKzUZ0AFxubYIFRDS5GKLjgo9cGyhsw=
