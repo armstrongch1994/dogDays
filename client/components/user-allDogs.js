@@ -35,6 +35,17 @@ const styles = theme => ({
   playIcon: {
     height: 38,
     width: 38
+  },
+  paragraph: {
+    lineHeight: 1.8,
+    margin: 0
+  },
+  link: {
+    color: '#bac5d0',
+    lineHeight: 1.8,
+    '&:hover': {
+      color: 'pink'
+    }
   }
 })
 
@@ -55,49 +66,28 @@ class userDogs extends Component {
                 <div className={classes.details}>
                   <CardContent className={classes.content}>
                     {dog.puppyName}
-                    <p>
+                    <p className={classes.paragraph}>
                       <b>Gender: </b>
                       {dog.gender}
                     </p>
-                    <p>
+                    <p className={classes.paragraph}>
                       <b>Size: </b>
                       {dog.size}
                     </p>
-                    <p>
+                    <p className={classes.paragraph}>
                       <b>Personality: </b>
                       {dog.personality}
                     </p>
+                    <p className={classes.paragraph}>
+                      Want to spend the day with {dog.puppyName}?
+                    </p>
+                    <Link className={classes.link} to={`/allDogs/${dog.id}`}>
+                      Check availability <i className="fa fa-arrow-right" />
+                    </Link>
                   </CardContent>
                 </div>
                 <CardMedia className={classes.cover} image={dog.imgUrl} />
               </Card>
-              // <div key={dog.id} className="single-dog">
-              //   <div className="image-container">
-              //     <img className="all-dog-image" src={dog.imgUrl} />
-              //   </div>
-              //   <div className="dog-content">
-              //     <h3>{dog.puppyName}</h3>
-              //     <p>
-              //       <b>gender:</b>
-              //       {dog.gender}{' '}
-              //     </p>
-              //     <p>
-              //       {' '}
-              //       <b>size:</b> {dog.size}{' '}
-              //     </p>
-              //     <p>
-              //       {' '}
-              //       <b>personality:</b>
-              //       {dog.personality}{' '}
-              //     </p>
-              //     <p className="spend-day">
-              //       Want to spend the day with {dog.puppyName}?
-              //       <Link to={`/allDogs/${dog.id}`}>
-              //         Check availability <i class="fa fa-arrow-right" />
-              //       </Link>
-              //     </p>
-              //   </div>
-              // </div>
             )
           })}
         </div>
