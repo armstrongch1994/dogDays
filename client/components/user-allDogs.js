@@ -7,6 +7,11 @@ import {withStyles} from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
+import Select from '@material-ui/core/Select'
+import FormControl from '@material-ui/core/FormControl'
+import InputLabel from '@material-ui/core/InputLabel'
+import MenuItem from '@material-ui/core/MenuItem'
+import ReactDOM from 'react-dom'
 
 const styles = theme => ({
   card: {
@@ -46,10 +51,26 @@ const styles = theme => ({
     '&:hover': {
       color: 'pink'
     }
+  },
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap'
+  },
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 120
+  },
+  selectEmpty: {
+    marginTop: theme.spacing.unit * 2
   }
 })
 
 class userDogs extends Component {
+  state = {
+    age: '',
+    name: 'hai',
+    labelWidth: 0
+  }
   componentDidMount() {
     this.props.loadAllDogs()
   }
@@ -58,7 +79,25 @@ class userDogs extends Component {
     return (
       <div className="all-dogs-container">
         <h1 className="all-dogs-header"> Meet our furry friends! </h1>
-
+        {/* <form className={classes.root}>
+          <FormControl className={classes.formContro}>
+            <InputLabel htmlFor="age-simple">Age</InputLabel>
+            <Select
+              value=""
+              inputProps={{
+                name: 'age',
+                id: 'age-simple'
+              }}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
+        </form> */}
         <div className="all-dogs-list">
           {this.props.allDogs.map(dog => {
             return (

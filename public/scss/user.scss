@@ -106,4 +106,8 @@
   .button-text-container {
     align-self: flex-end;
   }
+  .all-dogs-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
