@@ -3,12 +3,10 @@ import {connect} from 'react-redux'
 import {getSingleDogThunk} from '../store/dog'
 import {addBookingThunk, getSingleDogBookingThunk} from '../store/bookings'
 import Calendar from 'react-calendar'
-
+import BookingsCalendar from './calendar'
 function dateParser(date) {
   let indexOfT = date.indexOf('T')
-
   let removeTime = date.slice(1, indexOfT)
-
   let YMD = removeTime.split('-')
   return YMD
 }
@@ -39,7 +37,8 @@ class SingleDog extends Component {
 
   render() {
     let bookings = this.props.bookings
-
+    console.log('BOOKINGS', bookings)
+    console.log('bookings length', bookings.length)
     if (bookings.length === 0) {
       return (
         <div>
@@ -50,7 +49,7 @@ class SingleDog extends Component {
           </h2>
           <div className="calendar-image">
             <img src={this.props.dog.imgUrl} />
-            <Calendar
+            <BookingsCalendar
               onChange={this.onChange}
               value={this.state.date}
               activeStartDate={new Date()}
@@ -96,6 +95,7 @@ class SingleDog extends Component {
               value={this.state.date}
               activeStartDate={new Date()}
               minDate={new Date()}
+              allBookings={this.props.bookings}
               tileDisabled={({date, view}) =>
                 view === 'month' &&
                 disabledDates.some(

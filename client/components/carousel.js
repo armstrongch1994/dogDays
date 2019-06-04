@@ -5,13 +5,37 @@ class Carousel extends React.Component {
   render() {
     var settings = {
       dots: true,
-      infinite: true,
+      infinite: false,
       speed: 500,
       slidesToShow: 2,
-      slidesToScroll: 1,
-      adaptiveHeight: true,
-      arrows: true,
-      centerMode: true
+      slidesToScroll: 2,
+      initialSlide: 1,
+      centerMode: true,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
     }
     return (
       <Slider {...settings}>

@@ -171,17 +171,24 @@ img {
 
 .confirm-booking-container {
   display: flex;
-  align-items: center;
-  justify-content: space-evenly; }
+  flex-direction: column;
+  align-items: center; }
 
 .button-text-container {
   display: flex;
-  flex-direction: column;
-  align-self: flex-end; }
+  flex-direction: column; }
 
 .MuiCardMedia-root-30 {
   width: 100px;
   height: 100px; }
+
+@media screen and (min-width: 768px) {
+  .confirm-booking-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; }
+  .button-text-container {
+    align-self: flex-end; } }
 
 .footer {
   border-top: 1px solid #bac5d0;

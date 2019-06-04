@@ -5,7 +5,6 @@ const ADD_BOOKING = 'ADD_BOOKING'
 const GET_SINGLE_DOG_BOOKING = 'GET_SINGLE_DOG_BOOKING'
 
 const initialState = {
-  bookings: [],
   singleDogBooking: []
 }
 
@@ -45,7 +44,11 @@ export const getSingleDogBookingThunk = dogId => async dispatch => {
 const bookingReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOOKING:
-      return {...state, bookings: [...state.bookings, action.newBooking]}
+      return {
+        ...state,
+        singleDogBooking: [...state.singleDogBooking, action.newBooking]
+      }
+
     case GET_SINGLE_DOG_BOOKING:
       return {
         ...state,
@@ -59,3 +62,11 @@ const bookingReducer = (state = initialState, action) => {
 export default bookingReducer
 // the booking will be added to the booking model and then update the state to show all bookings
 // the single dogs page will render bookings based on ID
+
+/*
+function insertItem(array, action) {
+  let newArray = array.slice()
+  newArray.splice(action.index, 0, action.item)
+  return newArray
+}
+ */
