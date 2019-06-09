@@ -1,8 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-
-import {withStyles} from '@material-ui/core/styles'
-
 import {getAllDogsThunk, getfilteredDogsThunk} from '../store/dog'
 import {connect} from 'react-redux'
 
