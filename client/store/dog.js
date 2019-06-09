@@ -6,11 +6,13 @@ const GET_SHELTERS_DOGS = 'GET_SHELTERS_DOGS'
 const GET_ALL_DOGS = 'GET_ALL_DOGS'
 const GET_SINGLE_DOG = 'GET_SINGLE_DOG'
 const UPDATE_DOG_BOOKING = 'UPDATE_DOG_BOOKING'
+const GET_FILTERED_DOGS = 'GET_FILTERED_DOGS'
 
 const initialState = {
   dogs: [],
   sheltersDogs: [],
-  singleDog: {}
+  singleDog: {},
+  filteredDogs: []
 }
 
 const addDog = newDog => ({
@@ -37,6 +39,12 @@ const updateDogBooking = updatedDog => ({
   type: UPDATE_DOG_BOOKING,
   updatedDog
 })
+
+const getFilteredDogs = filteredDogs => ({
+  type: GET_FILTERED_DOGS,
+  filteredDogs
+})
+
 export const addDogThunk = newDog => async dispatch => {
   try {
     const {data} = await axios.post('/api/dogs', newDog)
@@ -79,6 +87,24 @@ export const updateDogBookingThunk = (id, updateData) => async dispatch => {
     console.log(id, updateData)
     const {data} = await axios.put(`/api/dogs/${id}`, updateData)
     dispatch(updateDogBooking(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const getfilteredDogsThunk = (
+  category,
+  categoryType
+) => async dispatch => {
+  try {
+    console.log('inside thunk')
+    console.log('category', category)
+    console.log('category type', categoryType)
+    const filterCategory = {
+      category,
+      categoryType
+    }
+    const {data} = await axios.put('/api/dogs/filteredDogs', filterCategory)
   } catch (error) {
     console.error(error)
   }

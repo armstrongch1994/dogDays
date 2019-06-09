@@ -71,6 +71,7 @@ class userDogs extends Component {
     this.props.loadAllDogs()
   }
   render() {
+    console.log('ALL DOGS', this.props.allDogs)
     const {classes, theme} = this.props
     return (
       <div className="all-dogs-container">

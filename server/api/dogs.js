@@ -25,6 +25,19 @@ router.post('/', async (req, res, next) => {
     next(error)
   }
 })
+router.put('/filteredDogs', async (req, res, next) => {
+  try {
+    let category = req.body.category
+    console.log('category', category)
+    let categoryType = req.body.categoryType
+    let filteredDogs = await Dog.findAll({
+      where: {category: categoryType}
+    })
+    console.log('filteredDogs', filteredDogs)
+  } catch (error) {
+    next(error)
+  }
+})
 
 router.get('/:id', async (req, res, next) => {
   try {
@@ -40,12 +53,10 @@ router.get('/:id', async (req, res, next) => {
 
 router.put('/:id', async (req, res, next) => {
   try {
-    // find the single dog that were trying to update
     let dogId = Number(req.params.id)
     const dogById = await Dog.findOne({
       where: {id: dogId}
     })
-    // if we find that dog in our database we need to update it with that content that weve passed in
     if (dogById) {
       console.log('we found a dog with this id', req.body)
       let updatedDog = dogById.update(req.body)

@@ -10,6 +10,8 @@ import FormHelperText from '@material-ui/core/FormHelperText'
 import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import NativeSelect from '@material-ui/core/NativeSelect'
+import {getAllDogsThunk, getfilteredDogsThunk} from '../store/dog'
+import {connect} from 'react-redux'
 
 const styles = theme => ({
   root: {
@@ -41,6 +43,13 @@ class NativeSelects extends React.Component {
 
   handleChange = name => event => {
     this.setState({[name]: event.target.value})
+    if (name === 'personality') {
+      this.props.loadFilteredDogs(name, event.target.value)
+    } else if (name === 'size') {
+      this.props.loadFilteredDogs(name, event.target.value)
+    } else if (name === 'gender') {
+      this.props.loadFilteredDogs(name, event.target.value)
+    }
   }
 
   render() {
@@ -115,9 +124,21 @@ class NativeSelects extends React.Component {
     )
   }
 }
-
+const mapState = state => {
+  return {
+    allDogs: state.dog.dogs
+  }
+}
+const mapDispatch = dispatch => ({
+  loadAllDogs: () => {
+    dispatch(getAllDogsThunk())
+  },
+  loadFilteredDogs: (category, categoryType) => {
+    dispatch(getfilteredDogsThunk(category, categoryType))
+  }
+})
 NativeSelects.propTypes = {
   classes: PropTypes.object.isRequired
 }
-
-export default withStyles(styles)(NativeSelects)
+const styledComp = withStyles(styles)(NativeSelects)
+export default connect(mapState, mapDispatch)(styledComp)
