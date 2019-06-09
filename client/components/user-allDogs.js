@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {getAllDogsThunk} from '../store/dog'
+import {getAllDogsThunk, getfilteredDogsThunk} from '../store/dog'
 import {Link} from 'react-router-dom'
 import {withStyles} from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
@@ -123,6 +123,9 @@ const mapState = state => {
 const mapDispatch = dispatch => ({
   loadAllDogs: () => {
     dispatch(getAllDogsThunk())
+  },
+  loadFilteredDogs: () => {
+    dispatch(getfilteredDogsThunk())
   }
 })
 userDogs.propTypes = {
