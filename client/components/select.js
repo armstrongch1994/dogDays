@@ -1,125 +1,99 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ReactDOM from 'react-dom'
+
 import {withStyles} from '@material-ui/core/styles'
-import Input from '@material-ui/core/Input'
-import OutlinedInput from '@material-ui/core/OutlinedInput'
-import FilledInput from '@material-ui/core/FilledInput'
-import InputLabel from '@material-ui/core/InputLabel'
-import FormHelperText from '@material-ui/core/FormHelperText'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import NativeSelect from '@material-ui/core/NativeSelect'
+
 import {getAllDogsThunk, getfilteredDogsThunk} from '../store/dog'
 import {connect} from 'react-redux'
 
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap'
-  },
-  formControl: {
-    margin: theme.spacing.unit,
-    minWidth: 120
-  },
-  selectEmpty: {
-    marginTop: theme.spacing.unit * 2
-  }
-})
 class NativeSelects extends React.Component {
-  state = {
-    personality: '',
-    size: '',
-    gender: '',
-    name: 'hai',
-    labelWidth: 0
+  constructor() {
+    super()
+    this.state = {
+      personality: '',
+      size: '',
+      gender: ''
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount() {
+  handleChange(event) {
     this.setState({
-      labelWidth: ReactDOM.findDOMNode(this.InputLabelRef.current).offsetWidth
+      [event.target.name]: event.target.value
     })
   }
-
-  handleChange = name => event => {
-    this.setState({[name]: event.target.value})
-    if (name === 'personality') {
-      this.props.loadFilteredDogs(name, event.target.value)
-    } else if (name === 'size') {
-      this.props.loadFilteredDogs(name, event.target.value)
-    } else if (name === 'gender') {
-      this.props.loadFilteredDogs(name, event.target.value)
-    }
+  handleSubmit(event) {
+    event.preventDefault()
+    this.props.loadFilteredDogs(this.state)
+    // this.setState({
+    //   personality: '',
+    //   size: '',
+    //   gender: ''
+    // })
   }
-
+  resetFilters() {}
   render() {
-    console.log(this.state)
     const {classes} = this.props
     this.InputLabelRef = React.createRef()
     return (
-      <div className={classes.root}>
-        <FormControl className={classes.formControl}>
-          <InputLabel ref={this.InputLabelRef} htmlFor="gender-native-simple">
-            Gender
-          </InputLabel>
-          <Select
-            native
-            value={this.state.gender}
-            onChange={this.handleChange('gender')}
-            inputProps={{
-              name: 'gender',
-              id: 'gender-native-simple'
-            }}
-          >
-            <option value="" />
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </Select>
-        </FormControl>
-        <FormControl className={classes.formControl}>
-          <InputLabel ref={this.InputLabelRef} htmlFor="size-native-simple">
-            Size
-          </InputLabel>
-          <Select
-            native
-            value={this.state.size}
-            onChange={this.handleChange('size')}
-            inputProps={{
-              name: 'size',
-              id: 'size-native-simple'
-            }}
-          >
-            <option value="" />
-            <option value="small">Extra Small</option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-            <option value="extraLarge">Extra Large</option>
-          </Select>
-        </FormControl>
-        <FormControl className={classes.formControl}>
-          <InputLabel
-            ref={this.InputLabelRef}
-            htmlFor="personality-native-simple"
-          >
-            Personality
-          </InputLabel>
-          <Select
-            native
-            value={this.state.personality}
-            onChange={this.handleChange('personality')}
-            inputProps={{
-              name: 'personality',
-              id: 'personality-native-simple'
-            }}
-          >
-            <option value="" />
-            <option value="lazy">Lazy</option>
-            <option value="mild">Mild</option>
-            <option value="energetic">Energetic</option>
-            <option value="wild">Wild</option>
-          </Select>
-        </FormControl>
+      <div className="filter-dogs-form">
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <label htmlFor="gender">
+              <small>Gender</small>
+            </label>
+            <select
+              name="gender"
+              value={this.state.gender}
+              onChange={this.handleChange}
+            >
+              <option default>Gender</option>
+              <option value="male">male</option>
+              <option value="female">female</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="size">
+              <small>Size</small>
+            </label>
+            <select
+              name="size"
+              value={this.state.size}
+              onChange={this.handleChange}
+            >
+              <option default>Size</option>
+              <option value="extraSmall">Extra Small</option>
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+              <option value="extraLarge">Extra Large</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="personality">
+              <small>Personality Type</small>
+            </label>
+
+            <select
+              name="personality"
+              value={this.state.personality}
+              onChange={this.handleChange}
+            >
+              <option default>Personality Type</option>
+              <option value="lazy">Lazy</option>
+              <option value="mellow">mellow</option>
+              <option value="Energetic">Energetic</option>
+              <option value="wild">wild</option>
+            </select>
+          </div>
+          <button type="submit">Filter</button>
+          <button type="button" onClick={() => this.resetFilters}>
+            Clear
+          </button>
+        </form>
       </div>
     )
   }
@@ -133,12 +107,9 @@ const mapDispatch = dispatch => ({
   loadAllDogs: () => {
     dispatch(getAllDogsThunk())
   },
-  loadFilteredDogs: (category, categoryType) => {
-    dispatch(getfilteredDogsThunk(category, categoryType))
+  loadFilteredDogs: filters => {
+    dispatch(getfilteredDogsThunk(filters))
   }
 })
-NativeSelects.propTypes = {
-  classes: PropTypes.object.isRequired
-}
-const styledComp = withStyles(styles)(NativeSelects)
-export default connect(mapState, mapDispatch)(styledComp)
+
+export default connect(mapState, mapDispatch)(NativeSelects)

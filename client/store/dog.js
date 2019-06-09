@@ -92,16 +92,13 @@ export const updateDogBookingThunk = (id, updateData) => async dispatch => {
   }
 }
 
-export const getfilteredDogsThunk = (
-  category,
-  categoryType
-) => async dispatch => {
+export const getfilteredDogsThunk = filters => async dispatch => {
   try {
-    const filterCategory = {
-      category,
-      categoryType
-    }
-    const {data} = await axios.put('/api/dogs/filteredDogs', filterCategory)
+    // const filterCategory = {
+    //   category,
+    //   categoryType
+    // }
+    const {data} = await axios.put('/api/dogs/filteredDogs', filters)
     dispatch(getFilteredDogs(data))
   } catch (error) {
     console.error(error)

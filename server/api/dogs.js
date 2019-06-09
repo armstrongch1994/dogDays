@@ -2,7 +2,19 @@ const router = require('express').Router()
 const {Dog} = require('../db/models')
 const whatDog = require('what-dog')
 module.exports = router
-
+function parse(object) {
+  let newObj = {}
+  if (object.personality !== '') {
+    newObj.personality = object.personality
+  }
+  if (object.size !== '') {
+    newObj.size = object.size
+  }
+  if (object.gender !== '') {
+    newObj.gender = object.gender
+  }
+  return newObj
+}
 router.get('/', async (req, res, next) => {
   try {
     const dogs = await Dog.findAll()
@@ -27,14 +39,23 @@ router.post('/', async (req, res, next) => {
 })
 router.put('/filteredDogs', async (req, res, next) => {
   try {
-    let category = req.body.category
-    console.log('category', category)
-    let categoryType = req.body.categoryType
+    // let category = req.body.category
+    // console.log('category', category)
+    // let categoryType = req.body.categoryType
+    console.log('REQ.BODY', req.body)
+
+    let parsedObject = parse(req.body)
+    console.log('PARSED OBJECT', parsedObject)
+    // let personality = req.body.personality
+    // let size = req.body.size
+    // let gender = req.body.gender
+    // if (personality === '') {
+    //   personality = ['lazy', 'energetic', 'mild', 'wild']
+    // }
     let filteredDogs = await Dog.findAll({
-      where: {
-        [category]: categoryType
-      }
+      where: parsedObject
     })
+    console.log('FILTEREDDOGS', filteredDogs)
     res.json(filteredDogs)
   } catch (error) {
     next(error)
