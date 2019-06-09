@@ -97,14 +97,12 @@ export const getfilteredDogsThunk = (
   categoryType
 ) => async dispatch => {
   try {
-    console.log('inside thunk')
-    console.log('category', category)
-    console.log('category type', categoryType)
     const filterCategory = {
       category,
       categoryType
     }
     const {data} = await axios.put('/api/dogs/filteredDogs', filterCategory)
+    dispatch(getFilteredDogs(data))
   } catch (error) {
     console.error(error)
   }
@@ -120,6 +118,8 @@ const dogReducer = (state = initialState, action) => {
       return {...state, dogs: action.allDogs}
     case GET_SINGLE_DOG:
       return {...state, singleDog: action.singleDog}
+    case GET_FILTERED_DOGS:
+      return {...state, dogs: action.filteredDogs}
     default:
       return state
   }

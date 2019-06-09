@@ -169,6 +169,10 @@ img {
 .confirm-booking-button {
   font-family: 'Alegreya Sans SC', sans-serif; }
 
+p {
+  margin: 0;
+  line-height: 2; }
+
 .confirm-booking-container {
   display: flex;
   flex-direction: column;
@@ -182,6 +186,35 @@ img {
   width: 100px;
   height: 100px; }
 
+.all-dogs-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; }
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 5px 0;
+  border: 1px solid #bac5d0;
+  padding: 5px; }
+
+.backgroundImage {
+  height: auto;
+  width: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+p.name {
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 20px; }
+
+.content > a {
+  color: #bac5d0; }
+  .content > a:hover {
+    color: pink; }
+
 @media screen and (min-width: 768px) {
   .confirm-booking-container {
     display: flex;
@@ -191,7 +224,16 @@ img {
     align-self: flex-end; }
   .all-dogs-list {
     display: flex;
-    flex-wrap: wrap; } }
+    flex-wrap: wrap;
+    justify-content: space-evenly; }
+  .card {
+    width: 40%; }
+  .backgroundImage {
+    height: auto;
+    width: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; } }
 
 .footer {
   border-top: 1px solid #bac5d0;
@@ -226,7 +268,8 @@ img {
 body {
   font-family: sans-serif; }
   body a {
-    text-decoration: none; }
+    text-decoration: none;
+    line-height: 2; }
   body label {
     display: block; }
   body nav a {

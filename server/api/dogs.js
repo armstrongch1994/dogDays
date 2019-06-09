@@ -31,9 +31,11 @@ router.put('/filteredDogs', async (req, res, next) => {
     console.log('category', category)
     let categoryType = req.body.categoryType
     let filteredDogs = await Dog.findAll({
-      where: {category: categoryType}
+      where: {
+        [category]: categoryType
+      }
     })
-    console.log('filteredDogs', filteredDogs)
+    res.json(filteredDogs)
   } catch (error) {
     next(error)
   }
