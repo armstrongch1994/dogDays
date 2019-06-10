@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getAllDogsThunk, getfilteredDogsThunk, setFilters} from '../store/dog'
 import NativeSelects from './select'
-import Card from './card'
+import Card from './Card'
 
 class userDogs extends Component {
   constructor(props) {
