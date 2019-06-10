@@ -1,48 +1,21 @@
 import React from 'react'
-import {getAllDogsThunk, getfilteredDogsThunk} from '../store/dog'
+import {getfilteredDogsThunk} from '../store/dog'
 import {connect} from 'react-redux'
 
 class NativeSelects extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      personality: '',
-      size: '',
-      gender: ''
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  handleChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-  handleSubmit(event) {
-    event.preventDefault()
-    this.props.loadFilteredDogs(this.state)
-    // this.setState({
-    //   personality: '',
-    //   size: '',
-    //   gender: ''
-    // })
-  }
-  resetFilters() {}
   render() {
-    const {classes} = this.props
-    this.InputLabelRef = React.createRef()
     return (
       <div className="filter-dogs-form">
-        <form onSubmit={this.handleSubmit}>
+        <form className="filter-form" onSubmit={this.props.handleSubmit}>
           <div>
             <label htmlFor="gender">
               <small>Gender</small>
             </label>
             <select
+              className="select"
               name="gender"
-              value={this.state.gender}
-              onChange={this.handleChange}
+              value={this.props.gender}
+              onChange={this.props.handleChange}
             >
               <option default>Gender</option>
               <option value="male">male</option>
@@ -56,8 +29,9 @@ class NativeSelects extends React.Component {
             </label>
             <select
               name="size"
-              value={this.state.size}
-              onChange={this.handleChange}
+              className="select"
+              value={this.props.size}
+              onChange={this.props.handleChange}
             >
               <option default>Size</option>
               <option value="extraSmall">Extra Small</option>
@@ -75,8 +49,9 @@ class NativeSelects extends React.Component {
 
             <select
               name="personality"
-              value={this.state.personality}
-              onChange={this.handleChange}
+              className="select"
+              value={this.props.personality}
+              onChange={this.props.handleChange}
             >
               <option default>Personality Type</option>
               <option value="lazy">Lazy</option>
@@ -86,7 +61,7 @@ class NativeSelects extends React.Component {
             </select>
           </div>
           <button type="submit">Filter</button>
-          <button type="button" onClick={() => this.resetFilters}>
+          <button type="button" onClick={this.props.resetFilters}>
             Clear
           </button>
         </form>
@@ -100,9 +75,6 @@ const mapState = state => {
   }
 }
 const mapDispatch = dispatch => ({
-  loadAllDogs: () => {
-    dispatch(getAllDogsThunk())
-  },
   loadFilteredDogs: filters => {
     dispatch(getfilteredDogsThunk(filters))
   }

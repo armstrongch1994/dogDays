@@ -7,12 +7,15 @@ const GET_ALL_DOGS = 'GET_ALL_DOGS'
 const GET_SINGLE_DOG = 'GET_SINGLE_DOG'
 const UPDATE_DOG_BOOKING = 'UPDATE_DOG_BOOKING'
 const GET_FILTERED_DOGS = 'GET_FILTERED_DOGS'
+const SET_FILTERS = 'SET_FILTERS'
 
 const initialState = {
   dogs: [],
   sheltersDogs: [],
   singleDog: {},
-  filteredDogs: []
+  personality: '',
+  size: '',
+  gender: ''
 }
 
 const addDog = newDog => ({
@@ -43,6 +46,11 @@ const updateDogBooking = updatedDog => ({
 const getFilteredDogs = filteredDogs => ({
   type: GET_FILTERED_DOGS,
   filteredDogs
+})
+
+export const setFilters = filters => ({
+  type: SET_FILTERS,
+  filters
 })
 
 export const addDogThunk = newDog => async dispatch => {
@@ -94,10 +102,6 @@ export const updateDogBookingThunk = (id, updateData) => async dispatch => {
 
 export const getfilteredDogsThunk = filters => async dispatch => {
   try {
-    // const filterCategory = {
-    //   category,
-    //   categoryType
-    // }
     const {data} = await axios.put('/api/dogs/filteredDogs', filters)
     dispatch(getFilteredDogs(data))
   } catch (error) {
@@ -117,6 +121,13 @@ const dogReducer = (state = initialState, action) => {
       return {...state, singleDog: action.singleDog}
     case GET_FILTERED_DOGS:
       return {...state, dogs: action.filteredDogs}
+    case SET_FILTERS:
+      return {
+        ...state,
+        personality: action.filters.personality,
+        size: action.filters.size,
+        gender: action.filters.gender
+      }
     default:
       return state
   }

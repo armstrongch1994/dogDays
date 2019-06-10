@@ -171,7 +171,7 @@ img {
 
 p {
   margin: 0;
-  line-height: 2; }
+  line-height: 1.5; }
 
 .confirm-booking-container {
   display: flex;
@@ -215,6 +215,34 @@ p.name {
   .content > a:hover {
     color: pink; }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* remove default arrow */ }
+
+label {
+  font-family: 'Open Sans Condensed', sans-serif; }
+
+button:focus,
+select:focus {
+  outline: 0; }
+
+select {
+  font-family: 'Open Sans Condensed', sans-serif;
+  padding: 5px 35px 5px 5px;
+  font-size: 10pt;
+  border: 1px solid #ccc;
+  height: 34px;
+  width: 150px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  outline: 0;
+  background-image: none;
+  appearance: none;
+  background: url(/images/select_arrow.png) 96%/8% no-repeat #eee; }
+
 @media screen and (min-width: 768px) {
   .confirm-booking-container {
     display: flex;
@@ -234,6 +262,10 @@ p.name {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; } }
+
+.filter-dogs-form {
+  display: flex;
+  justify-content: center; }
 
 .footer {
   border-top: 1px solid #bac5d0;
