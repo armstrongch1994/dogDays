@@ -63,7 +63,7 @@
     "redux-thunk": "^2.3.0",
     "sequelize": "^5.8.6",
     "slick-carousel": "^1.8.1",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.5.0",
     "url-loader": "^1.1.2",
     "what-dog": "^1.0.4"
   },
